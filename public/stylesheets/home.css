@@ -55,7 +55,7 @@ aside, nav, article, figure {
 body {
 	font:14px/1.6 Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;
 	color:#2d3536;
-	background:#e8e0c0 url(..images/background_solid.png) repeat;
+	background:#e8e0c0 url(../images/background_solid.png) repeat;
     text-shadow:0 1px 0 #fff;
 }
 
