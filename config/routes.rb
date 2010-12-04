@@ -1,11 +1,12 @@
 WeiboGift::Application.routes.draw do
   
-  match 'root' => 'users#index', :as => :root
+  match 'root' => 'home#index', :as => :root
+   match '/' => 'home#index', :as => :/
   match 'user'  => 'users#index', :as => :user  
 #  match 'connect' => 'user#connect', :as => :connect
-  match "callback" => 'users#callback', :as => :callback
-  match 'login' => 'sessions#new', :as => :login
-  match "signout"  => 'users#signout', :as => :signout
+  match "callback" => 'sessions#callback', :as => :callback
+  match 'login' => 'users#new', :as => :login
+  match "signout"  => 'sessions#signout', :as => :signout
   resources :users
   # The priority is based upon order of creation:
   # first created -> highest priority.

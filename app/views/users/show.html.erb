@@ -2,4 +2,4 @@
 <h1>the user is : 
 <%=@user.screen_name %> <h1>
 <%= image_tag @user.profile_image_url %>
-<a href="signout">signout </a>
+<%= link_to "signout", signout_url%>
