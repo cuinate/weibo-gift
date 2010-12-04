@@ -1,14 +1,11 @@
-require 'OauthSystem'
+
 class UsersController < ApplicationController
-  include OauthSystem
+  include OauthSystemHelper
   before_filter :oauth_login_required, :except => [ :callback, :signout, :index ]
   
   def index
 	end
 
- # def callback
-#   OauthSystem.callback
-#  end
 	def new
 		# this is a do-nothing action, provided simply to invoke authentication
 		# on successful authentication, user will be redirected to 'show'

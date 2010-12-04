@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-   include OauthSystem
+  include OauthSystemHelper
   
 	def callback
 	  logger.info("get called in callback")

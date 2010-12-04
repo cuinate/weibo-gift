@@ -15,6 +15,8 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 
 # To use debugger
 # gem 'ruby-debug'
+#jquery gem
+gem 'jquery-rails'
 
 # weibo related 
 gem 'weibo'

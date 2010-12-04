@@ -38,6 +38,8 @@ GEM
     httparty (0.6.1)
       crack (= 0.1.8)
     i18n (0.4.2)
+    jquery-rails (0.2.3)
+      rails (~> 3.0)
     mail (2.2.10)
       activesupport (>= 2.3.6)
       i18n (~> 0.4.1)
@@ -79,6 +81,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  jquery-rails
   oauth
   rails (= 3.0.1)
   sqlite3-ruby
