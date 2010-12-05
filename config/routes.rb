@@ -8,6 +8,7 @@ WeiboGift::Application.routes.draw do
   match 'login' => 'users#new', :as => :login
   match "signout"  => 'sessions#signout', :as => :signout
   resources :users
+  resources :pictures
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

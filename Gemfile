@@ -22,6 +22,10 @@ gem 'jquery-rails'
 gem 'weibo'
 gem 'oauth'
 
+#for photo uploading and storage
+gem 'paperclip'
+gem 'mime-types', :require => 'mime/types'
+
 # Bundle the extra gems:
 # gem 'bj'
 # gem 'nokogiri'
