@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  helper :OauthSystem
- 
+  include OauthSystem
 end

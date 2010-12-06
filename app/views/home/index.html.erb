@@ -1,25 +1,55 @@
+<div id="header">
+	<div class="wrapper">
+		<div class="top-nav">
+			<a href="./什么都不做 - 豆瓣电台_files/什么都不做 - 豆瓣电台.htm" class="logo">豆瓣电台</a>
+			<img src="../images/logo2.png"  class ="" alt="上海鲜花港 - 郁金香" />
+			<div class="login">
+				<a href="/login"> <%= image_tag "weibo_connect.png"%> </a>
+			</div>
 
-<% if logged_in? %>
-#     Welcome <%= current_user.screen_name %>! Not you?
-#     <%= link_to "sign out", signout_path %>
-<% else%>
-<a href="/login"> <%= image_tag "weibo_connect.png"%> </a>
-<% end %>
-
-<div id="wrapper">
-        <div id="slider-wrapper">
+		</div>
+	</div>
+</div>
+	
+<div id="intro">
+    <div class="wrapper">
+		
             <div id="slider" class="nivoSlider">
-				<%= image_tag "home_slider/toystory.jpg"%>
+				<%= image_tag "home_slider/intro1.png"%>
                 <a href="http://www.google.com">
-				<%= image_tag "home_slider/up.jpg", :title => "This is an example of a caption"%></a>
-				<%= image_tag "home_slider/walle.jpg"%>
-				<%= image_tag "home_slider/nemo.jpg", :title => "#htmlcaption"%>
+				<%= image_tag "home_slider/intro2.png", :title => "This is an example of a caption"%></a>
+				<%= image_tag "home_slider/intro3.png"%>
+				<%= image_tag "home_slider/intro4.png", :title => "#htmlcaption"%>
             </div>
             <div id="htmlcaption" class="nivo-html-caption">
                 <strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>.
             </div>
-        </div>
- </div>
+        
+	
+    </div>
+    <div class="bg mod"></div>
+</div>
+
+<div id="content">
+	<div class="wrapper">
+		<div class="main">
+<!--
+			<div id="login">
+			<h2>立即传出你的博礼</h2>
+			<a href="/login"> <%= image_tag "weibo_connect.png"%> </a>
+			</div>
+!-->
+			<div id="showcase">
+			<span style="margin-left:20px;">正在送出：</span>
+			<span style="float: right;margin-right:20px;">刷新</span>
+			<div id="case">
+			<img src="../images/place_holder.png"  class ="" alt="上海鲜花港 - 郁金香" style="align:center;margin-left:40px;" />
+			</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
 <script type="text/javascript">
     $(window).load(function() {
         $('#slider').nivoSlider();

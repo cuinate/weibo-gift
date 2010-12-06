@@ -1,6 +1,6 @@
 require 'oauth'
 
-module OauthSystemHelper
+module OauthSystem
   
   # weibo api_key and api_secret 
   Weibo::Config.api_key = "2942145647"
@@ -9,9 +9,9 @@ module OauthSystemHelper
   
 	class GeneralError < StandardError
 	end
-	class RequestError < OauthSystemHelper::GeneralError
+	class RequestError < OauthSystem::GeneralError
 	end
-	class NotInitializedError < OauthSystemHelper::GeneralError
+	class NotInitializedError < OauthSystem::GeneralError
 	end
  
   # controller method to handle twitter callback (expected after login_by_oauth invoked)
@@ -35,7 +35,7 @@ protected
       self.oauth.authorize_from_access(user_token, user_secret)
       self.weibo_agent = Weibo::Base.new(oauth) if user_token && user_secret
 		  self.weibo_agent = Weibo::Base.new(oauth) unless @weibo_agent
-		@weibo_agent ||= raise OauthSystemHelper::NotInitializedError
+		@weibo_agent ||= raise OauthSystem::NotInitializedError
     end
     
     def weibo_agent=(new_agent)

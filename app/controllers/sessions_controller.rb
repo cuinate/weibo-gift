@@ -1,14 +1,12 @@
 class SessionsController < ApplicationController
-  include OauthSystemHelper
   
 	def callback
 	  logger.info("get called in callback")
 	  self.oauth.authorize_from_request(session[:rtoken], session[:rsecret], params[:oauth_verifier])
     session[:rtoken], session[:rsecret] = nil, nil
     session[:atoken], session[:asecret] = oauth.access_token.token, oauth.access_token.secret
-    
+
 	  user_info =  self.weibo_agent.verify_credentials		
-	  
 		raise OauthSystem::RequestError unless user_info['id'] && user_info['screen_name'] && user_info['profile_image_url']
 		# We have an authorized user, save the information to the database.
 		@user = User.find_by_screen_name(user_info['screen_name'])
@@ -43,7 +41,7 @@ class SessionsController < ApplicationController
 	
 	# controller method to handle logout
 	def signout
-		self.current_user = false 
+		current_user = false 
 		reset_session
 		flash[:notice] = "You have been logged out."
 		redirect_to root_url

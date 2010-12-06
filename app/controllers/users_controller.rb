@@ -1,6 +1,5 @@
 
 class UsersController < ApplicationController
-  include OauthSystemHelper
   before_filter :oauth_login_required, :except => [ :callback, :signout, :index ]
   
   def index

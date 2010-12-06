@@ -4,13 +4,8 @@ class PicturesController < ApplicationController
      @picture = Picture.new
    end
 
-   def create
-     
-      weibo_id  = session[:weibo_id]
-      logger.info("====== weibo_id: ==== #{weibo_id}")
-      #@user = User.find_by_weibo_id(session[:weibo_id])
+   def create     
 
-      #logger.info("====== user_is: ==== #{@user.screen_name}")
       @picture = Picture.new
       @picture.user_id =  params[:user_id]
 
