@@ -1,0 +1,25 @@
+<div id="header">
+	<div class="wrapper">
+		<div class="top-nav">
+			<a href="#" class="logo">豆</a>
+			
+			<div class="login">
+				<%if session[:weibo_id]%>
+				<% @user = User.find_by_weibo_id(session[:weibo_id])%>
+					欢迎 ，<%=@user.screen_name %> 
+				<%= link_to "signout", signout_url%>
+				<%else%>
+				<a href="/login"> <%= image_tag "weibo_connect.png"%> </a>
+				<%end%>
+			</div>
+
+		</div>
+	</div>
+</div><!--header end -->
+
+
+<script>
+$(document).ready(function(){
+	Vboli.initializer();
+});
+</script>

@@ -20,6 +20,12 @@ class UsersController < ApplicationController
 		end
 	end
 	
+	def create_card
+	  respond_to do |format|
+      format.js
+    end
+	end
+	
 	
 
 end

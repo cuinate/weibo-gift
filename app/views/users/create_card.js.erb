@@ -1,0 +1,10 @@
+//alert("got you!");
+$('#content_part').empty();
+var step_saved = $("#step_saved").attr("step_saved");
+//alert(nav_type);
+if (step_saved == "step1"){
+	$('#content_part').append("<%= escape_javascript(render :partial =>"card_paper")%>");
+}
+else{
+	$('#content_part').append("<%= escape_javascript(render :partial =>"card_say_something")%>");
+}
