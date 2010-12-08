@@ -1,0 +1,16 @@
+<% @user = User.find_by_weibo_id(session[:weibo_id])%>
+<h1>the user is : 
+<%=@user.screen_name %> <h1>
+<%= image_tag @user.profile_image_url %>
+<%= link_to "signout", signout_url%>
+
+<h3>Upload a Photo</h3>
+<%= render :partial => "show" %>
+<% form_for Picture.new(:user_id => @user.id), :html => {:multipart => true} do |f| %>
+<%= f.hidden_field :user_id, "value" => @user.id %>
+    <p>
+    <%= f.file_field :photo %>
+  </p>
+  <p><%= f.submit "Upload" %></p>
+<% end %>
+

@@ -1,16 +1,72 @@
-<% @user = User.find_by_weibo_id(session[:weibo_id])%>
-<h1>the user is : 
-<%=@user.screen_name %> <h1>
-<%= image_tag @user.profile_image_url %>
-<%= link_to "signout", signout_url%>
+<div id="header">
+	<div class="wrapper">
+		<div class="top-nav">
+			<a href="./什么都不做 - 豆瓣电台_files/什么都不做 - 豆瓣电台.htm" class="logo">豆瓣电台</a>
+			
+			<div class="login">
+				<% @user = User.find_by_weibo_id(session[:weibo_id])%>
+					欢迎 ，<%=@user.screen_name %> 
+				<%= link_to "signout", signout_url%>
+			</div>
 
-<h3>Upload a Photo</h3>
+		</div>
+	</div>
+</div>
+
+<div id="navi_top">
+    <div class="wrapper">
+		<div id="stepps_navi">
+			<div id="card_counter">
+				<p id="cards_no">制作世界上第158张博卡</p>
+			</div>
+			<div id="selection_navi">
+				<div id="step1" class="steps_sel_on"></div>
+				<div id="arrow1" class="arrow"></div>
+				<div id="step2" class="steps_sel_on"></div>
+				<div id="arrow1" class="arrow"></div>
+				<div id="step3" class="steps_sel_on"></div>
+				<div id="arrow1" class="arrow"></div>
+				<div id="step4" class="steps_sel_on"></div>
+			</div>
+		</div>
+			<div id="caption_navi">
+			   <div class="step_caption_on"> <p> 选择信纸 </p> </div>
+			   <div class="step_caption_off"> <p> 说点什么 </p> </div>
+			   <div class="step_caption_off"> <p>  选择信封 </p> </div>
+			   <div class="step_caption_off"> <p> 盖戳发送 </p> </div>
+			</div>
+		</div>
+</div>
+<div id="card_content">
+	<div class="wrapper">
+		<div id="content_title">
+		选择信纸
+		</div>
+		<div id="thumb_navi">
+			<div id="thumb_navi_item_1" class="thumb_navi_off"> </div>
+			<div id="thumb_navi_item_1" class="thumb_navi_off"> </div>
+			<div id="thumb_navi_item_1" class="thumb_navi_off"> </div>
+			<div id="thumb_navi_item_1" class="thumb_navi_off"> </div>
+			<div id="thumb_navi_item_1" class="thumb_navi_off"> </div>
+			<div id="thumb_navi_item_1" class="thumb_navi_off"> </div>
+			<div id="thumb_navi_item_1" class="thumb_navi_off"> </div>
+			<div id="thumb_navi_item_1" class="thumb_navi_off"> </div>
+			<div id="thumb_navi_item_1" class="thumb_navi_off"> </div>
+			<div id="thumb_navi_item_1" class="thumb_navi_on"> </div>
+		</div>
+		 <div id="pic_show">
+			<div id= "pic_show_arrow_left">
+		
+			</div>
+			<div id="big_picture_wrapper">
+						<div id="big_picture">
+				</div>
+			</div>
+			<div id="pic_show_arrow_right">
+			
+			</div>
+		
+		</div>
+	</div>
+</div>
 <%= render :partial => "show" %>
-<% form_for Picture.new(:user_id => @user.id), :html => {:multipart => true} do |f| %>
-<%= f.hidden_field :user_id, "value" => @user.id %>
-    <p>
-    <%= f.file_field :photo %>
-  </p>
-  <p><%= f.submit "Upload" %></p>
-<% end %>
-
