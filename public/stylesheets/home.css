@@ -15,6 +15,8 @@ abbr,acronym { border:0; }
 /* Font,  Link & Container */
 body { font:12px/1.6 arial,helvetica,sans-serif; 
 //background-color:#f0f1f1;
+background: white url(../images/background-tile.png) repeat-x 50% 0px;
+background-position: 50% -175px;
 }
 a:link { color:#369;text-decoration:none; }
 a:visited { color:#669;text-decoration:none; }
@@ -50,23 +52,29 @@ margin-bottom: 0.8em;
 .mod {
 width: 100%;
 }
+/*whole warpper*/
+#whole_wrapper{
+background: transparent url(../images//background.jpg) no-repeat 50% 0%;
+}
 /* Header */
 #header { width:100%;margin:0 0 10px 0;
-//border:1px dotted red;
-
- }
-#header { padding: 0; margin-bottom: 2px ; }
-#header .wrapper { margin: 20px auto 0px auto; }
+//background-color:#074762;
+//border-bottom:3px solid #c33c26;
+}
+#header { padding: 0; margin-bottom: 0px ; }
+#header .wrapper { margin: 0px auto 0px auto; }
 #header .top-nav { height: 62px; border-bottom: none; color: #737373 }
-#header .login { float: right; margin: -12px 10px 0 0; _margin: 0 10px 0 0 }
+#header .login {float: right; margin: 20px 10px 0 0; _margin: 0 10px 0 0;
+}
 #header .login a:link { color: #336699}
 #header .login a:visited { color: #669 }
 #header .login a:hover { color: #fff; background:#039 }
 #header .login a:active { color: #fff; background:#f93 }
 #header .logo { margin-left: 15px; float: left; 
-background: url(../images/logo.png) no-repeat; display: block; width: 220px; height: 62px; text-indent: -9999px }
+background: url(../images/logo5.png) no-repeat; display: block; width: 220px; height: 62px; text-indent: -9999px }
 /* intro */
 #intro { position: relative; left: 0; top: 0; height: 400px;
+margin: 10px auto 0px auto;
 //border:1px dotted red;
  }
 #intro .wrapper { position: relative; left: 0; top: 0 }
@@ -87,18 +95,21 @@ border: 1px solid #EEE;}
 
 /* making card --- navigation*/
 #navi_top{
-margin-top:2px;
+margin-top:10px;
 margin-bottom:2px;
+width:100%;
+//border:1px dotted red;
+//background-color:#b8efff;
 }
 #navi_top .wrapper { margin: 2px auto 10px auto;
 width: 1000px;
-//border:1px dotted red;
+border-top: 1px solid #EEE;
+border-bottom: 1px solide #eee;
 }
 #stepps_navi{
 height:65px;
 //float:left;
-//border: 1px solid #EEE;
-background: url('../images/selection_navi_back.png') repeat-x;
+//background: url('../images/selection_navi_back.png') repeat-x;
 }
 #card_counter{
 float:left;
@@ -152,7 +163,7 @@ width: 40px; height: 40px;
 #caption_navi{
 height:20px;
 //border: 1px solid #EEE;
-margin-left:280px;
+margin-left:20px;
 }
 .step_caption_on{
 float:left;
@@ -241,9 +252,9 @@ height:400px;
 float:left;
 //background:url(../images/envalop_L.png) no-repeat; 
 background-color:#f2e8d7;
-border:8px solid #fff;
--moz-box-shadow:#b5b7b7 0px 0px 1px 1px;
--webkit-box-shadow: #b5b7b7 0px 0px 1px 1px;
+border:1px solid #eee;
+-webkit-box-shadow: #333 0px 0px 5px;
+-moz-box-shadow:    #333 0px 0px 5px;
 }
 #pic_show_arrow_right{
 float:left;
@@ -267,7 +278,7 @@ font-size:14px;
 float:left;
 color: #656464;
 //background-color:#fc5e51;
-border-bottom: 5px solid #fc5e51;
+border-bottom: 2px solid #fc5e51;
 //-moz-box-shadow:#b5b7b7 0px 0px 1px 1px;
 //-webkit-box-shadow: #b5b7b7 0px 0px 1px 1px;
 }
@@ -286,7 +297,7 @@ width:80px;
 }
 .say_caption_on.caption_on{
 //background-color:#656464;
-border-left: 5px solid #fc5e51;
+//border-left: 5px solid #fc5e51;
 border-bottom: 0px;
 font-size:14px;
 }
@@ -331,7 +342,7 @@ background-color:#fff;
 //-webkit-box-shadow: #b5b7b7 0px 0px 1px 1px;
 border:1px solid #b1b1b1;
 height:270px;
-width:270px;
+width:500px;
 //margin-top:20px;
 margin-left:15px;
 }
@@ -399,7 +410,7 @@ height:70px;
 	position:relative;
     width:847px;
     height:356px;
-    margin-left:20px;
+    margin: 10px auto 0px auto;
 	background:url(../images/home_slider/loading.gif) no-repeat 50% 50%;
 }
 #slider img {
