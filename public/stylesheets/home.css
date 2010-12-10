@@ -232,35 +232,82 @@ height:440px;
 }
 #pic_show_arrow_left{
 float:left;
-width:115px;
+width:100px;
 height:440px;
 //border:1px dotted red;
 }
 #big_picture_wrapper{
 float:left;
-width:760px;
+width:800px;
 height:440px;
+margin-left: 20px;
 //border:1px dotted red;
 
 }
 #big_picture{
-position: relative;
+//position: relative;
 margin-top:20px;
-margin-left:20px;
-width:680px;
+width:800px;
 height:400px;
 float:left;
-//background:url(../images/envalop_L.png) no-repeat; 
-background-color:#f2e8d7;
-border:1px solid #eee;
+background:url(../images/background_solid.png) repeat; 
+//background-color:#f2e8d7;
+//border:1px solid #eee;
 -webkit-box-shadow: #333 0px 0px 5px;
 -moz-box-shadow:    #333 0px 0px 5px;
 }
 #pic_show_arrow_right{
 float:left;
-width:115px;
+width:100px;
 height:440px;
 //border:1px dotted red;
+}
+#pic_sel_caption{
+float:left;
+width:200px;
+}
+#sel_caption{
+margin-top:20px;
+margin-left:20px;
+display: block;
+font-size :30px;
+padding-left:5px;
+color: #333;
+float: left;
+//padding-right: 25px;
+width: 200px;
+}
+#try{
+margin-left:30px;
+font-size:17px;
+color: #551818;
+float: left;
+max-width: 255px;
+min-height: 25px;
+padding-right: 25px;
+}
+#pic_sel_thumb{
+float:right;
+height:400px;
+width:550px;
+//border:1px solid red;
+}
+.pic_back_slot{
+width:550px;
+height:100px;
+margin-top:10px;
+margin-bottom:20px;
+//border: 1px solid red;
+}
+.pic_back_slot_thumb{
+margin-top:25px;
+margin-left:15px;
+width:150px;
+height:50px;
+//border: 1px solid red;
+-webkit-box-shadow: #3C2D22 0px 0px 2px;
+-moz-box-shadow:    #3C2D22 0px 0px 2px;
+float:left;
 }
 
 /* making card --- say something*/
