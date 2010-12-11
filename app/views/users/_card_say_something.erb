@@ -1,82 +1,82 @@
 <%= render :partial => "show" %>
 <div id="card_content">
 	<div class="wrapper">
-		<div id="content_title_say_something">
-		 <span id="select_pic" class="say_caption_on ">&nbsp选择图片&nbsp</span>
-		 <span id="select_font" class="say_caption_off">&nbsp选择字体&nbsp</span>
-		</div>
-		<div id="thumb_navi" style="padding-left:5px;">
-			<div id="thumb_navi_caption">
-				<div id="1" style="height:10px; width:10px; background-color:#fc5e51;"></div>
-				<span id="my_pic" class="say_caption_on caption_on">&nbsp我的图片&nbsp</span>
-				<span id="default_pic" class="say_caption_off caption_off">&nbsp系统推荐&nbsp</span>
-			</div>
-			<div id="thumb_navi_item_1" class="thumb_navi_off"> </div>
-			<div id="thumb_navi_item_1" class="thumb_navi_off"> </div>
-			<div id="thumb_navi_item_1" class="thumb_navi_off"> </div>
-			<div id="thumb_navi_item_1" class="thumb_navi_off"> </div>
-			<div id="thumb_navi_item_1" class="thumb_navi_off"> </div>
-			<div id="thumb_navi_item_1" class="thumb_navi_off"> </div>
-			<div id="thumb_navi_item_1" class="thumb_navi_off"> </div>
-			<div id="thumb_navi_item_1" class="thumb_navi_off"> </div>
-			<div id="thumb_navi_item_1" class="thumb_navi_off"> </div>
-			<div id="thumb_navi_item_1" class="thumb_navi_on"> </div>
-		</div>
-		 <div id="pic_show">
-			<div id= "pic_show_arrow_left">
 
-			</div>
+		 <div id="pic_show">
+			
 			<div id="big_picture_wrapper">
-				<div id="card_picture">
-					<div id="card_left">				
-						<div id="card_pic">
-							<div id="card_pic_done">
-								<h3>Upload a Photo</h3> 
-								<% form_for Picture.new(:user_id => current_user.id), :html => {:multipart => true} do |f| %>
-								<% logger.info("current_user is :")%>
-								<% logger.info(current_user.id)%>
-								    <p>
-								    <%= f.file_field :photo %>
-								  </p>
-								  <p><%= f.submit "Upload" %></p>
-								<% end %>
+				<div id="big_picture">
+					<div id="pic_sel_caption">
+						<p id ="sel_caption"> 选择心仪图片</p>
+						<p id="try"> 或者... </p>
+						<div id="upload_pic_btn" class="image_button"></div>
+					</div>
+					<div id="pic_sel_thumb">
+						<div id="pic_category">
+							<div id ="my_pic" class="pic_catetory_wrapper">
+								推荐图片
 							</div>
-							<div id="card_pic_selection">
-								<div id="card_pic_upload">
-									
-								
+							<div id = "default_pic" class="pic_catetory_wrapper_off">
+								我的图片
+							</div>
+						</div>
+						<div id ="pic_slot1" class="pic_back_slot">
+							<div id="pic_back_slot_thumb1" class="pic_back_slot_thumb">
+								1
+							</div>
+							<div id="pic_back_slot_thumb1" class="pic_back_slot_thumb">
+								2
+							</div>
+							<div id="pic_back_slot_thumb1" class="pic_back_slot_thumb">
+								3
+							</div>
+						</div>
+						<div id ="pic_slot2" class="pic_back_slot">
+								<div id="pic_back_slot_thumb1" class="pic_back_slot_thumb">
+									1
 								</div>
-								<div id="card_pic_shot">
+								<div id="pic_back_slot_thumb1" class="pic_back_slot_thumb">
+									2
+								</div>
+								<div id="pic_back_slot_thumb1" class="pic_back_slot_thumb">
+									3
+								</div>
+						</div>
 							
+						<div id ="pic_slot3" class="pic_back_slot">
+								<div id="pic_back_slot_thumb1" class="pic_back_slot_thumb">
+									4
 								</div>
-							</div>
+								<div id="pic_back_slot_thumb1" class="pic_back_slot_thumb">
+									5
+								</div>
+								<div id="pic_back_slot_thumb1" class="pic_back_slot_thumb">
+									6
+								</div>
+						</div>					
+					</div>
+					<!--pic_sel_thumb end-->
+					<div id="upload_picture_div" class="display_off">
+
+							<span style="font-size:16px; color:#333;display:block;margin:20px 0px 10px 15px;">选择图片上传</span>
+							<% form_for Picture.new(:user_id => current_user.id), :html => {:multipart => true} do |f| %>
+							    <div id="upload_photo_field">
+							    <%= f.file_field :photo %>
+							    </div>
+							    <div id="upload_photo_btn">
+							  <%= f.submit "现在上传" ,:class => "submit_btn"%>
+
+							<% end %>
 						</div>
 					</div>
-					<div id="card_right">
-					
-						<div id="card_post_code">
-						
-						</div>
-						<div id="card_words">
-							<span> 写点什么吧？</span>
-						</div>
-						<div id="card_words_default">
-						
-						</div>
-						<div id="card_music">
-							选择背景音乐
-						</div>
-						
-					</div>
+					<!-- upload_picture end-->
 				</div>
 			</div>
+			<!-- big_picture_wrapper end-->
 			<div id="pic_show_arrow_right">
 			
 			</div>
 		
-		</div>
-		<div id="preview_show">
-			<img src="../images/card_preview.png"  class ="" alt="preview" style="align:center;margin-left:430px;" />
 		</div>
 	</div>
 </div>

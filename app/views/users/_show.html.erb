@@ -2,6 +2,12 @@
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function() {
 	
+	$("#upload_pic_btn").click(function(){
+		$("#pic_sel_thumb").attr('class','display_off');
+		$("#upload_picture_div").attr('class','display_on');
+	});
+	
+	
 	$('#picture_photo').click(function(event){ 
 		event.preventDefault();
 	}); 

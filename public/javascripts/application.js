@@ -27,6 +27,7 @@ var Vboli = {
 					});
 			}
 			
+			
 			$("#step1").click(function(){
 				//alert("got you!");
 				var step_now = "step1";
