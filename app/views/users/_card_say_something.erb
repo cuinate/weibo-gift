@@ -58,7 +58,8 @@
 					<!--pic_sel_thumb end-->
 					<div id="upload_picture_div" class="display_off">
 
-							<span style="font-size:16px; color:#333;display:block;margin:20px 0px 10px 15px;">选择图片上传</span>
+							<span style="font-size:16px; color:#999;display:block;margin:20px 0px 10px 15px;">选择图片上传:</span>
+							<div class="spacer"></div>
 							<% form_for Picture.new(:user_id => current_user.id), :html => {:multipart => true} do |f| %>
 							    <div id="upload_photo_field">
 							    <%= f.file_field :photo %>

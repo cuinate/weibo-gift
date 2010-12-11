@@ -55,6 +55,14 @@ a.bn-close:hover, a.bn-close:active { background:#f10;color:#fff;border:2px soli
 }
 .image_button{cursor:pointer;line-height:1.2; }	
 .text_button{cursor:pointer;line-height:1.2;}
+div.spacer{
+	float:left;
+	width: 450px;
+	height: 2px;
+	margin-left: 10px;
+	background-color: #999;
+}
+
 /* Layout */
 #header, #content, #footer {
 width: 100%;
