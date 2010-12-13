@@ -1,0 +1,29 @@
+<%= render :partial => "show" %>
+<div id="card_content">
+	<div class="wrapper">
+
+		 <div id="pic_show">
+			
+			<div id="big_picture_wrapper">
+				<div id="big_picture">
+					<div id="pic_sel_caption">
+						<p id ="sel_caption"> 说点啥吧：</p>
+						<p id="try"> 然后可以选择字体了</p>
+						<div id="upload_pic_btn" class="image_button"></div>
+					</div>
+					<div id="pic_sel_thumb">
+						<%= image_tag @pic.photo.url %>		
+					</div>
+					<!--pic_sel_thumb end-->
+
+				</div>
+				<!-- big picture end-->
+			</div>
+			<!-- big_picture_wrapper end-->
+			<div id="pic_show_arrow_right">
+			
+			</div>
+		
+		</div>
+	</div>
+</div>

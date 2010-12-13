@@ -26,6 +26,14 @@ class UsersController < ApplicationController
     end
 	end
 	
+	def create_card_input
+	  pic_id = params[:pic_id]
+	  @pic = Picture.find_by_id(pic_id)
+	  respond_to do |format|
+	   format.html # create_card_input.html.erb
+	   format.js
+    end
+  end
 	
 
 end

@@ -10,7 +10,7 @@ WeiboGift::Application.routes.draw do
   
 # cards 
   match 'createcard' => 'users#create_card', :as => :createcard
-  
+  match 'create_card_input' => 'users#create_card_input', :as => :create_card_input
   
   resources :users
   resources :pictures

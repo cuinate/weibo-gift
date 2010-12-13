@@ -16,12 +16,22 @@ $(document).ready(function() {
 	  $('#picture_photo').uploadify({
 	      uploader   	  : '/javascripts/uploadify/uploadify.swf',
 		  cancelImg  	  : '/images/cancel.png',
-		  multi      	  : true,
-		  script     	  : '/pictures',
+		  multi      	  : false,
+		  script     	  : '/pictures.json',
 	      fileDesc        : 'Photo',
+	      auto            :  true,
 	      fileExt         : '*.png;*.jpg;*.gif',
 	      sizeLimit       : <%= 1.megabytes %>,
 	      buttonText      : 'select',
+		  onComplete      : function(event, queueID, fileObj, response, data){
+							alert(response);
+							$.get(
+								"/create_card_input.js",
+								{
+									pic_id: response
+								});
+
+							},
 	      scriptData      : {
 	        '_http_accept': 'application/javascript',
 	        '_method': 'post',

@@ -14,7 +14,14 @@ class PicturesController < ApplicationController
 
       @picture.photo = params[:Filedata]
       if @picture.save
-          render :json => { 'status' => 'success'  }
+          session[:pic_id] = @picture.id
+          logger.info("==== pic id =====")
+          logger.info(session[:pic_id])
+          
+           respond_to do |format|
+              #format.json { render :json => @picture}
+              format.json {render :json =>  @picture.id }
+           end        
       else
           render :json => { 'status' => 'error' }     
       end

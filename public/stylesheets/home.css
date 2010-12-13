@@ -277,8 +277,8 @@ margin-top:20px;
 width:800px;
 height:400px;
 float:left;
-background:url(../images/background_solid.png) repeat; 
-//background-color:#f2e8d7;
+//background:url(../images/background_solid.png) repeat; 
+background-color:#f2e8d7;
 //border:1px solid #eee;
 -webkit-box-shadow: #333 0px 0px 5px;
 -moz-box-shadow:    #333 0px 0px 5px;
@@ -412,7 +412,9 @@ height:50px;
 //border: 1px solid red;
 -webkit-box-shadow: #3C2D22 0px 0px 2px;
 -moz-box-shadow:    #3C2D22 0px 0px 2px;
+background-color: #f64677;
 float:left;
+cursor:pointer;
 }
 
 /* making card --- say something*/
