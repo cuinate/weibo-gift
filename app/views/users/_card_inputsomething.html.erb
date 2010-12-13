@@ -6,13 +6,16 @@
 			
 			<div id="big_picture_wrapper">
 				<div id="big_picture">
-					<div id="pic_sel_caption">
+					<div id="card_input_words">
 						<p id ="sel_caption"> 说点啥吧：</p>
 						<p id="try"> 然后可以选择字体了</p>
 						<div id="upload_pic_btn" class="image_button"></div>
 					</div>
-					<div id="pic_sel_thumb">
-						<%= image_tag @pic.photo.url %>		
+					<div id="card_photo_right">
+						<div id="card_photo_wrapper">
+							<span></span>
+							<%= image_tag  @pic.photo.url(:card), :class => 'card_photo_style' %>		
+						</div>
 					</div>
 					<!--pic_sel_thumb end-->
 

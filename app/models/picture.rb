@@ -4,7 +4,7 @@ class Picture < ActiveRecord::Base
                     :default_style => :thumb,
                     :styles => {
                       :thumb => "100x50#",
-                      :card  => "360x360#"
+                      :card  => "320x320#"
                     },
                     :url => "/system/picture/:id/:style/:filename"
                     

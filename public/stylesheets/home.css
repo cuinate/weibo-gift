@@ -293,6 +293,10 @@ height:440px;
 float:left;
 width:200px;
 }
+#card_input_words{
+float:left;
+width:200px;
+}
 #sel_caption{
 margin-top:20px;
 margin-left:20px;
@@ -325,6 +329,32 @@ float:right;
 height:400px;
 width:550px;
 //border:1px solid red;
+}
+#card_photo_right{
+float:right;
+height:400px;
+width:550px;
+//border:1px solid red;
+}
+#card_photo_wrapper{
+//position:relative;
+margin-left:50px;
+margin-top:10px;
+//background-color:#f4f4f4;
+height:360px;
+width:420px;
+//-webkit-box-shadow: #333 0px 0px 5px;
+//-moz-box-shadow:    #333 0px 0px 5px;
+}
+.card_photo_style{
+margin-left:50px;
+margin-top:10px;
+border:10px solid #f4f4f4;
+-moz-box-shadow:3px 3px 1px rgba(0, 0, 0, 0.2); 
+-webkit-box-shadow:3px 3px 1px rgba(0, 0, 0, 0.2) ; 
+-box-shadow:3px 3px 1px rgba(0, 0, 0, 0.2) ;
+//-webkit-box-shadow: #333 0px 0px 5px;
+//-moz-box-shadow:    #333 0px 0px 5px;
 }
 #upload_picture_div{
 margin-top:15px;
