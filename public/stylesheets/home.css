@@ -295,7 +295,21 @@ width:200px;
 }
 #card_input_words{
 float:left;
-width:200px;
+width:250px;
+}
+#card_input_textarea{
+//padding-top:10px;
+line-height: 1.8 ;
+width:220px;
+margin-top:30px;
+margin-left:20px;
+height:220px;
+font-size:25px;
+border:2px solid #f4f4f4;
+background: url(../images/texteara_back.png) no-repeat;
+-moz-box-shadow:3px 3px 1px rgba(0, 0, 0, 0.2); 
+-webkit-box-shadow:3px 3px 1px rgba(0, 0, 0, 0.2) ; 
+-box-shadow:3px 3px 1px rgba(0, 0, 0, 0.2) ;
 }
 #sel_caption{
 margin-top:20px;
@@ -449,6 +463,19 @@ border:2px solid #f4f4f4;
 //-webkit-box-shadow: #3C2D22 0px 0px 2px;
 //-moz-box-shadow:    #3C2D22 0px 0px 2px;
 //background-color: #f64677;
+float:left;
+cursor:pointer;
+}
+.pic_selection_slot_thumb{
+margin-top:25px;
+margin-left:15px;
+width:100px;
+height:50px;
+//border: 1px solid red;
+border:2px solid #f4f4f4;
+-moz-box-shadow:3px 3px 1px rgba(0, 0, 0, 0.2); 
+-webkit-box-shadow:3px 3px 1px rgba(0, 0, 0, 0.2) ; 
+-box-shadow:3px 3px 1px rgba(0, 0, 0, 0.2) ;
 float:left;
 cursor:pointer;
 }

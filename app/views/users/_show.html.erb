@@ -2,6 +2,9 @@
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function() {
 	
+	Vboli.initializer();
+	 $("#card_input_textarea").focus();
+	$("#big_picture").css({'background': Vboli.background_url});
 	$("#upload_pic_btn").click(function(){
 		$("#pic_sel_thumb").attr('class','display_off');
 		$("#upload_picture_div").attr('class','display_on');
@@ -24,7 +27,7 @@ $(document).ready(function() {
 	      sizeLimit       : <%= 1.megabytes %>,
 	      buttonText      : 'select',
 		  onComplete      : function(event, queueID, fileObj, response, data){
-							alert(response);
+							//alert(response);
 							$.get(
 								"/create_card_input.js",
 								{

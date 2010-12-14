@@ -1,6 +1,7 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 var Vboli = {
+	background_url: "url(../images/background/big/back4.png) ",
 	initializer: function(){
 	
 			/* ------- creating card steps   -----------------*/
@@ -27,11 +28,7 @@ var Vboli = {
 					});
 			}
 			
-			$(".pic_back_slot_thumb").hover(function(){
-				var back_name = $(this).attr("id");
-				var back_url  = "url(../images/background/big/" + back_name + ".png)"
-				$("#big_picture").css({'background': back_url});
-			});
+		
 			$("#step1").click(function(){
 				//alert("got you!");
 				var step_now = "step1";

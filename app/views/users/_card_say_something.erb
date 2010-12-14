@@ -1,5 +1,9 @@
 <%= render :partial => "show" %>
+<script>
+
+</script>
 <div id="card_content">
+
 	<div class="wrapper">
 
 		 <div id="pic_show">
@@ -21,36 +25,36 @@
 							</div>
 						</div>
 						<div id ="pic_slot1" class="pic_back_slot">
-							<div id="pic_back_slot_thumb1" class="pic_back_slot_thumb">
+							<div id="pic_back_slot_thumb1" class="pic_selection_slot_thumb">
 								1
 							</div>
-							<div id="pic_back_slot_thumb1" class="pic_back_slot_thumb">
+							<div id="pic_back_slot_thumb1" class="pic_selection_slot_thumb">
 								2
 							</div>
-							<div id="pic_back_slot_thumb1" class="pic_back_slot_thumb">
+							<div id="pic_back_slot_thumb1" class="pic_selection_slot_thumb">
 								3
 							</div>
 						</div>
 						<div id ="pic_slot2" class="pic_back_slot">
-								<div id="pic_back_slot_thumb1" class="pic_back_slot_thumb">
+								<div id="pic_back_slot_thumb1" class="pic_selection_slot_thumb">
 									1
 								</div>
-								<div id="pic_back_slot_thumb1" class="pic_back_slot_thumb">
+								<div id="pic_back_slot_thumb1" class="pic_selection_slot_thumb">
 									2
 								</div>
-								<div id="pic_back_slot_thumb1" class="pic_back_slot_thumb">
+								<div id="pic_back_slot_thumb1" class="pic_selection_slot_thumb">
 									3
 								</div>
 						</div>
 							
 						<div id ="pic_slot3" class="pic_back_slot">
-								<div id="pic_back_slot_thumb1" class="pic_back_slot_thumb">
+								<div id="pic_back_slot_thumb1" class="pic_selection_slot_thumb">
 									4
 								</div>
-								<div id="pic_back_slot_thumb1" class="pic_back_slot_thumb">
+								<div id="pic_back_slot_thumb1" class="pic_selection_slot_thumb">
 									5
 								</div>
-								<div id="pic_back_slot_thumb1" class="pic_back_slot_thumb">
+								<div id="pic_back_slot_thumb1" class="pic_selection_slot_thumb">
 									6
 								</div>
 						</div>					
@@ -58,7 +62,8 @@
 					<!--pic_sel_thumb end-->
 					<div id="upload_picture_div" class="display_off">
 
-							<span style="font-size:16px; color:#999;display:block;margin:20px 0px 10px 15px;">选择图片上传:</span>
+							<span style="font-size:16px; color:#999;display:block;margin:20px 0px 10px 				
+							15px;">选择图片上传:</span>
 							<div class="spacer"></div>
 							<% form_for Picture.new(:user_id => current_user.id), :html => {:multipart => true} do |f| %>
 							    <div id="upload_photo_field">
