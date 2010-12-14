@@ -27,8 +27,10 @@ var Vboli = {
 					});
 			}
 			
-			$("#pic_back_slot_thumb1").hover(function(){
-				$("#big_picture").css({'background-color':'#f64677'});
+			$(".pic_back_slot_thumb").hover(function(){
+				var back_name = $(this).attr("id");
+				var back_url  = "url(../images/background/big/" + back_name + ".png)"
+				$("#big_picture").css({'background': back_url});
 			});
 			$("#step1").click(function(){
 				//alert("got you!");

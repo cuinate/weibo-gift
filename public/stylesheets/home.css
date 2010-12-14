@@ -277,8 +277,8 @@ margin-top:20px;
 width:800px;
 height:400px;
 float:left;
-//background:url(../images/background_solid.png) repeat; 
-background-color:#f2e8d7;
+background:url(../images/background/big/back4.png) no-repeat; 
+//background-color:#f2e8d7;
 //border:1px solid #eee;
 -webkit-box-shadow: #333 0px 0px 5px;
 -moz-box-shadow:    #333 0px 0px 5px;
@@ -303,7 +303,7 @@ margin-left:20px;
 display: block;
 font-size :30px;
 padding-left:5px;
-color: #333;
+color: white;
 float: left;
 //padding-right: 25px;
 width: 200px;
@@ -311,7 +311,7 @@ width: 200px;
 #try{
 margin-left:30px;
 font-size:17px;
-color: #551818;
+color: white;
 float: left;
 max-width: 255px;
 min-height: 25px;
@@ -429,20 +429,26 @@ width: 100px;
 background-color:#fc5e51;
 }
 .pic_back_slot{
-width:550px;
+width:400px;
 height:100px;
 margin-top:10px;
 margin-bottom:20px;
+margin-left:100px;
 }
 .pic_back_slot_thumb{
 margin-top:25px;
 margin-left:15px;
-width:150px;
+width:100px;
 height:50px;
 //border: 1px solid red;
--webkit-box-shadow: #3C2D22 0px 0px 2px;
--moz-box-shadow:    #3C2D22 0px 0px 2px;
-background-color: #f64677;
+border:2px solid #f4f4f4;
+-moz-box-shadow:3px 3px 1px rgba(0, 0, 0, 0.2); 
+-webkit-box-shadow:3px 3px 1px rgba(0, 0, 0, 0.2) ; 
+-box-shadow:3px 3px 1px rgba(0, 0, 0, 0.2) ;
+
+//-webkit-box-shadow: #3C2D22 0px 0px 2px;
+//-moz-box-shadow:    #3C2D22 0px 0px 2px;
+//background-color: #f64677;
 float:left;
 cursor:pointer;
 }
