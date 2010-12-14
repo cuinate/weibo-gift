@@ -9,6 +9,7 @@ $(document).ready(function() {
 		$(".pic_back_slot_thumb").click(function(){
 			var back_name = $(this).attr("id");
 			Vboli.background_url  = "url(../images/background/big/" + back_name + ".png)"
+			Vboli.background_pic  = back_name + ".png"
 			$("#big_picture").css({'background': Vboli.background_url});
 			$("#step2").trigger('click');
 		});

@@ -12,6 +12,9 @@ WeiboGift::Application.routes.draw do
   match 'createcard' => 'users#create_card', :as => :createcard
   match 'create_card_input' => 'users#create_card_input', :as => :create_card_input
   
+# picture 
+  match 'card_compose' => 'pictures#card_compose', :as => :card_compose
+  
   resources :users
   resources :pictures
   # The priority is based upon order of creation:

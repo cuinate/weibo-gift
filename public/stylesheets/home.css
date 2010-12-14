@@ -37,9 +37,10 @@ a.bn-close:hover, a.bn-close:active { background:#f10;color:#fff;border:2px soli
 /* unique style */
 .submit_btn{
 		clear:both;
-		background-color:#008cb1;
+		background-color: white;
+		width:80px;
 		border:none;
-		color:#fff;
+		color:#000;
 		cursor: pointer;
 		font-weight: normal;
 		font-size: 12px;

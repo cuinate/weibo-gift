@@ -18,6 +18,10 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 #jquery gem
 gem 'jquery-rails'
 
+# Specify a version of RMagick that works in your environment:
+gem 'rmagick'
+#,'~> 2.12.0', rmagick_options
+
 # weibo related 
 gem 'weibo'
 gem 'oauth'

@@ -2,6 +2,7 @@
 // This file is automatically included by javascript_include_tag :defaults
 var Vboli = {
 	background_url: "url(../images/background/big/back4.png) ",
+	background_pic: "back1.png",
 	initializer: function(){
 	
 			/* ------- creating card steps   -----------------*/
@@ -38,6 +39,18 @@ var Vboli = {
 				//alert("got you!");
 				var step_now = "step2";
 				card_step_nav(step_now);
+			});
+			
+			$("#submit_card").click(function(){
+				var card_pic_id = $("#card_photo_id").attr("card_photo_id");
+				var input_text  = $("#card_input_textarea").val();
+				$.get(
+					"/card_compose.js",
+					{
+						card_pic_id		  : card_pic_id,
+						input_text 		  : input_text,
+						background_pic    : Vboli.background_pic
+					});
 			});
 	},
 	
