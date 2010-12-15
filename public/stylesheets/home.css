@@ -284,6 +284,17 @@ background:url(../images/background/big/back4.png) no-repeat;
 -webkit-box-shadow: #333 0px 0px 5px;
 -moz-box-shadow:    #333 0px 0px 5px;
 }
+#card_picture{
+margin-top:20px;
+width:800px;
+height:400px;
+float:left;
+//background:url(../images/background/big/back4.png) no-repeat; 
+//background-color:#f2e8d7;
+//border:1px solid #eee;
+-webkit-box-shadow: #333 0px 0px 5px;
+-moz-box-shadow:    #333 0px 0px 5px;
+}
 #pic_show_arrow_right{
 float:left;
 width:100px;

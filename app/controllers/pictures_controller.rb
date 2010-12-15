@@ -108,6 +108,7 @@ class PicturesController < ApplicationController
       @picture.photo =  File.new(@out_file_path)
       
       @picture.user_id = @user.id
+      @picture.is_card = 1 # save this picture as greeting cards
       # Associate the correct MIME type for the file since Flash will change it
       #aFile.content_type = MIME::Types.type_for(aFile.original_filename).to_s
 
@@ -115,8 +116,17 @@ class PicturesController < ApplicationController
       logger.info("----- current_file____")
       logger.info(@picture.photo)
       
-      @picture.save
-      aFile.close
+      # --- save the picture
+      
+      if @picture.save
+          aFile.close
+           respond_to do |format|
+              format.js
+              format.json {render :json =>  @picture.id }
+           end        
+      else
+          render :json => { 'status' => 'error' }     
+      end
      
    end 
 end

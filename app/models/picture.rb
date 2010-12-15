@@ -8,5 +8,6 @@ class Picture < ActiveRecord::Base
                       :back  => "800x400#"
                     },
                     :url => "/system/picture/:id/:style/:filename"
+  scope :is_card, where(:is_card => '1')
                     
 end
