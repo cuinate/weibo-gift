@@ -35,6 +35,11 @@ class PicturesController < ApplicationController
    end   
    
    def card_compose
+     
+     @out_file_path = ''
+     @user = current_user
+     logger.info("==== card compose :: current_user_name")
+ 		 logger.info(@user.screen_name)
      @picture = Picture.new
      card_pic_id        = params[:card_pic_id]
 		 input_text         = params[:input_text]
@@ -91,9 +96,27 @@ class PicturesController < ApplicationController
         end          
         font_file_name = File.basename(f, 'ttf')
        #font_file_name = "fz_shaer"
-        file_path = output_path + "/"+ font_file_name + ".png"  
-        img.write(file_path)  
+        @out_file_path = output_path + "/"+ font_file_name + "png"  
+        img.write(@out_file_path) 
+        logger.info("----- outpu_file_path:____")
+        logger.info(@out_file_path) 
       end
+      
+      # --- save the file to user.picture using paperclip
+      aFile = File.new(@out_file_path)
+      # ... process the file
+      @picture.photo =  File.new(@out_file_path)
+      
+      @picture.user_id = @user.id
+      # Associate the correct MIME type for the file since Flash will change it
+      #aFile.content_type = MIME::Types.type_for(aFile.original_filename).to_s
+
+      @picture.photo = aFile
+      logger.info("----- current_file____")
+      logger.info(@picture.photo)
+      
+      @picture.save
+      aFile.close
      
    end 
 end
