@@ -15,7 +15,7 @@ abbr,acronym { border:0; }
 /* Font,  Link & Container */
 body { font:12px/1.6 arial,helvetica,sans-serif; 
 //background-color:#f0f1f1;
-background: white url(../images/background-tile.png) repeat-x 50% 0px;
+//background: white url(../images/background-tile.png) repeat-x 50% 0px;
 background-position: 50% -175px;
 }
 a:link { color:#369;text-decoration:none; }
@@ -83,7 +83,7 @@ width: 100%;
 }
 /*whole warpper*/
 #whole_wrapper{
-background: transparent url(../images//background.jpg) no-repeat 50% 0%;
+//background: transparent url(../images//background.jpg) no-repeat 50% 0%;
 }
 /* Header */
 #header { width:100%;margin:0 0 10px 0;
@@ -182,6 +182,7 @@ cursor: pointer;
 background: url(../images/step4_send_off.png) no-repeat; 
 cursor: pointer;
 }
+
 .arrow{
 background: url(../images/arrow.png) no-repeat; 
 float:left;
@@ -209,6 +210,42 @@ color: #656464;
 margin-left:0px;
 margin-right:75px;
 }
+
+/*============================*/
+/*=== template thumb show  ===*/
+/*============================*/
+#temp_thumb_wrapper{
+width: 1000px;
+margin: 10px auto 10px auto;
+//border:1px dotted red;
+}
+ul.temp_thumb {
+list-style: none;
+margin: 0px;
+padding: 0px;
+}
+ul.temp_thumb li {
+background: url(../images/background/temp_bg.png) no-repeat; 
+display: block;
+float: left;
+height: 230px;
+margin-left:30px;
+margin-bottom: 12px;
+overflow: hidden;
+//padding: 11px 11px 0px;
+width: 256px;
+}
+ul.temp_thumb li .thumb {
+//background: url(http://www.tuyansuo.com/images/img_bg.png);
+border: 1px solid #999;
+margin:5px auto auto 6px;
+
+height: 180px;
+overflow: hidden;
+position: relative;
+width: 240px;
+}
+
 /* making card --- card content*/
 #card_content{}
 #card_content.wrapper  { 
@@ -253,11 +290,16 @@ margin-right:12px;
 border:3px solid #ee5c60;
 }
 /* making card --- card content -- big picture*/
+
+
+
+
+/*------- old layout and style ----- */
 #pic_show{
 margin: 2px auto 10px auto;
-height:440px;
+//height:440px;
 //width:100%;
-//border:1px dotted red;
+border:1px dotted red;
 }
 #pic_show_arrow_left{
 float:left;
@@ -270,7 +312,7 @@ float:left;
 width:800px;
 height:440px;
 margin-left: 20px;
-//border:1px dotted red;
+border:1px dotted red;
 
 }
 #big_picture{
