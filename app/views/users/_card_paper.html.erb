@@ -18,37 +18,9 @@ $(document).ready(function() {
 </script>
 <div id="temp_thumb_wrapper">
 	<ul class = "temp_thumb">
-	<li>   
-		<%= image_tag "template/thumb/template4_thumb.jpg", :title => "test1",
-															:class => 'thumb'%>
-	</li>
-	<li>   
-		<%= image_tag "template/thumb/template4_thumb.jpg", :title => "test1",
-															:class => 'thumb'%>
-	</li>
-	<li>   
-		<%= image_tag "template/thumb/template4_thumb.jpg", :title => "test1",
-															:class => 'thumb'%>
-	</li>
-	<li>   
-		<%= image_tag "template/thumb/template4_thumb.jpg", :title => "test1",
-															:class => 'thumb'%>
-	</li>
-	<li>   
-		<%= image_tag "template/thumb/template4_thumb.jpg", :title => "test1",
-															:class => 'thumb'%>
-	</li>
-	<li>   
-		<%= image_tag "template/thumb/template4_thumb.jpg", :title => "test1",
-															:class => 'thumb'%>
-	</li>
-	<li>   
-		<%= image_tag "template/thumb/template4_thumb.jpg", :title => "test1",
-															:class => 'thumb'%>
-	</li>
-	<li>   
-		<%= image_tag "template/thumb/template4_thumb.jpg", :title => "test1",
-															:class => 'thumb'%>
-	</li>
+	<% @templates.each do |template| %>
+	<li><%= image_tag  template.pic(:thumb), :title => template.description,
+											  :class => 'thumb'%></li>
+	<%end%>
 	</ul>
 </div>
