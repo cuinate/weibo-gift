@@ -210,6 +210,31 @@ color: #656464;
 margin-left:0px;
 margin-right:75px;
 }
+/*============================*/
+/*=== template edit show  ===*/
+/*============================*/
+.tempaltes_show {
+width: 1000px;
+margin: 10px auto 10px auto;
+//border:1px dotted red;
+}
+.tempaltes_show_tr{
+border:1px solid #999;
+}
+.tempaltes_show_tr th{
+border:1px solid #999;
+color:#fff;
+background-color :#333;
+padding:4px;
+}
+.tempaltes_show_tr td{
+padding:4px;
+border:1px solid #999;
+}
+.tempaltes_show_tr .field{
+border:1px solid #999;
+}
+
 
 /*============================*/
 /*=== template thumb show  ===*/

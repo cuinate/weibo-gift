@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101205084435) do
+ActiveRecord::Schema.define(:version => 20101218124644) do
 
   create_table "pictures", :force => true do |t|
     t.integer  "user_id"
@@ -32,6 +32,26 @@ ActiveRecord::Schema.define(:version => 20101205084435) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "templates", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "category"
+    t.integer  "input_x"
+    t.integer  "input_y"
+    t.integer  "input_width"
+    t.integer  "input_height"
+    t.integer  "pic_x"
+    t.integer  "pic_y"
+    t.integer  "pic_width"
+    t.integer  "pic_height"
+    t.integer  "pic_angle"
+    t.string   "pic_file_name"
+    t.string   "pic_content_type"
+    t.integer  "pic_file_size"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.integer  "weibo_id",          :null => false

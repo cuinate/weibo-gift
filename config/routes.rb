@@ -1,5 +1,7 @@
 WeiboGift::Application.routes.draw do
   
+
+
   match 'root' => 'home#index', :as => :root
   match '/' => 'home#index', :as => :/
   match 'user'  => 'users#index', :as => :user  
@@ -17,6 +19,7 @@ WeiboGift::Application.routes.draw do
   
   resources :users
   resources :pictures
+  resources :templates
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

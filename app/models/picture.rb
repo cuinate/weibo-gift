@@ -3,7 +3,7 @@ class Picture < ActiveRecord::Base
   has_attached_file :photo, 
                     :default_style => :thumb,
                     :styles => {
-                      :temp  => "240x150#"
+                      :temp  => "200x150#"
                     },
                     :url => "/system/picture/:id/:style/:filename"
   scope :is_card, where(:is_card => '1')
