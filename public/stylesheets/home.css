@@ -261,12 +261,21 @@ overflow: hidden;
 //padding: 11px 11px 0px;
 width: 230px;
 }
+ul.temp_thumb li .temp_img_div {
+//background: url(../images/background/img_bg.png) ; 
+//background-color:#e9e9e9;
+margin: 10px auto auto 13px;
+border: none;
+height: 151px;
+//overflow: hidden;
+position: relative;
+width: 201px;
+}
 ul.temp_thumb li .thumb {
-//background: url(http://www.tuyansuo.com/images/img_bg.png);
-border: 1px solid #e9e9e9;
-margin: 10px auto auto 12px;
+border: 1px solid #999;
+//margin: 10px auto auto 12px;
 height: 150px;
-overflow: hidden;
+//overflow: hidden;
 position: relative;
 width: 200px;
 }

@@ -41,6 +41,8 @@ var Vboli = {
 				card_step_nav(step_now);
 			});
 			
+		    //$('.temp_img_div a').lightBox(); 
+			
 			$("#submit_card").click(function(){
 				var card_pic_id = $("#card_photo_id").attr("card_photo_id");
 				var input_text  = $("#card_input_textarea").val();
