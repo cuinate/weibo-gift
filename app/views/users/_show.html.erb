@@ -25,7 +25,10 @@ $(document).ready(function() {
 	      auto            :  true,
 	      fileExt         : '*.png;*.jpg;*.gif',
 	      sizeLimit       : <%= 1.megabytes %>,
-	      buttonText      : 'select',
+          buttonImg       : '/images/background/file_upload_btn.png',
+          wmode           : 'transparent',
+          width           : 184,
+          height          : 40,
 		  onComplete      : function(event, queueID, fileObj, response, data){
 							//alert(response);
 							$.get(

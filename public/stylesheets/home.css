@@ -279,6 +279,53 @@ height: 150px;
 position: relative;
 width: 200px;
 }
+/*============================*/
+/*=== card creating        ===*/
+/*============================*/
+#temp_back_div{
+background: url(../images/background/temp_bg_b.png);
+//border : 1px solid #e9e9e9;
+margin: 2px auto 10px auto;
+width: 820px;
+height: 620px;
+//-webkit-box-shadow: #333 0px 0px 5px;
+//-moz-box-shadow:    #333 0px 0px 5px;
+}
+#card_back_div{
+float:left;
+//border:1px solid red;
+margin-top :8px;
+margin-left:8px;
+width:800px;
+height:600px;
+}
+#card_pic_sel_div{
+float:left;
+border: 5px solid white;
+-webkit-box-shadow: #333 0px 0px 5px;
+-moz-box-shadow:    #333 0px 0px 5px;
+background-color: #212121;
+}
+#card_input_div{
+//float:left;
+//border:1px solid red;
+}
+#card_pic_sel_span{
+display:block;
+color:#717070;
+font-size:30px;
+margin-top: 100px;
+margin-left:40px;
+}
+#card_input_text{
+-moz-box-shadow:3px 3px 1px rgba(0, 0, 0, 0.2); 
+-webkit-box-shadow:3px 3px 1px rgba(0, 0, 0, 0.2) ; 
+-box-shadow:3px 3px 1px rgba(0, 0, 0, 0.2) ;
+border:0px;
+font-size:30px;
+line-height:10px;
+color:#999;
+}
 
 /* making card --- card content*/
 #card_content{}

@@ -18,6 +18,9 @@ class CreateTemplates < ActiveRecord::Migration
       t.string     :pic_content_type
       t.integer    :pic_file_size
 
+      t.string     :back_file_name
+      t.string     :back_content_type
+      t.integer    :back_file_size
       t.timestamps
     end
   end

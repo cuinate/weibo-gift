@@ -41,7 +41,14 @@ var Vboli = {
 				card_step_nav(step_now);
 			});
 			
-		    //$('.temp_img_div a').lightBox(); 
+		    $(".temlate_sel").click(function(){
+				var template_id = $(this).attr("id");
+				$.get(
+					"/createcard.js",
+					{
+					  temp_id:template_id
+					});
+			});
 			
 			$("#submit_card").click(function(){
 				var card_pic_id = $("#card_photo_id").attr("card_photo_id");

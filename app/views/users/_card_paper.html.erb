@@ -24,11 +24,14 @@ $(document).ready(function() {
 
 	<li>
 	<div class="temp_img_div">
-	<a href="<%= template.pic(:original)%>">
-	<%= image_tag  template.pic(:thumb), :title => template.description,
-	     								  :class => 'thumb'%>
-	</a>
+		
+		<a href="<%= template.pic(:thumb_b)%>">
+		<%= image_tag  template.pic(:thumb), :title => template.description,
+		     								  :class => 'thumb'%>
+		</a>
+		
 	</div>
+	<a href="javascript:void(0)" ><div id="<%= template.id %>" class="temlate_sel">选择</div></a>
 	</li>
 
 	<%end%>

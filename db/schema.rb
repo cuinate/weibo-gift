@@ -49,6 +49,9 @@ ActiveRecord::Schema.define(:version => 20101218124644) do
     t.string   "pic_file_name"
     t.string   "pic_content_type"
     t.integer  "pic_file_size"
+    t.string   "back_file_name"
+    t.string   "back_content_type"
+    t.integer  "back_file_size"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
