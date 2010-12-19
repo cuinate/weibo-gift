@@ -292,7 +292,7 @@ height: 620px;
 //-moz-box-shadow:    #333 0px 0px 5px;
 }
 #card_back_div{
-float:left;
+position:absolute;
 //border:1px solid red;
 margin-top :8px;
 margin-left:8px;
@@ -300,17 +300,19 @@ width:800px;
 height:600px;
 }
 #card_pic_sel_div{
-float:left;
+position:absolute;
 border: 5px solid white;
 -webkit-box-shadow: #333 0px 0px 5px;
 -moz-box-shadow:    #333 0px 0px 5px;
 background-color: #212121;
 }
 #card_input_div{
+position:absolute;
 //float:left;
 //border:1px solid red;
 }
 #card_pic_sel_span{
+position:absolute;
 display:block;
 color:#717070;
 font-size:30px;
@@ -323,7 +325,7 @@ margin-left:40px;
 -box-shadow:3px 3px 1px rgba(0, 0, 0, 0.2) ;
 border:0px;
 font-size:30px;
-line-height:10px;
+line-height:40px;
 color:#999;
 }
 

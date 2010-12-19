@@ -31,17 +31,18 @@ class UsersController < ApplicationController
 	  pic_y = @template.pic_y.to_s
 	  pic_width = @template.pic_width.to_s
 	  pic_height = @template.pic_height.to_s
-	  @card_pic_sel_div_style = "margin-top:" + pic_y + "px;margin-left:" + pic_x + "px;width:" + pic_width + "px;height:" + pic_height + "px;"
+	  @card_pic_sel_div_style = "top:" + pic_y + "px;left:" + pic_x + "px;width:" + pic_width + "px;height:" + pic_height + "px;"
 	  
 	  @card_pic_div_style = "width:" + pic_width + "px;height:" + pic_height + "px;"
 	  #---- text input box div coordination
     input_x = @template.input_x.to_s
 	  input_y = @template.input_y.to_s
-	  input_width = @template.input_width.to_s
-	  input_height = @template.input_height.to_s
-	  @card_input_div_style = "margin-top:" + input_y + "px;margin-left:" + input_x + "px;width:" + input_width + "px;height:" + input_height + "px;"
-	  
-	  @card_input_text_style = "width:" + input_width + "px;height:" + input_height +"px;"
+	  input_width = (@template.input_width + 10).to_s
+	  input_height = (@template.input_height + 10).to_s
+	  @card_input_div_style = "top:" + input_y + "px;left:" + input_x + "px;width:" + input_width + "px;height:" + input_height + "px;"
+	  text_width = @template.input_width.to_s
+	  text_height = @template.input_height.to_s
+	  @card_input_text_style = "width:" + text_width + "px;height:" + text_height +"px;"
 	  logger.info(@card_back_div_style)
 	  respond_to do |format|
       format.js
