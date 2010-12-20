@@ -24,6 +24,7 @@ class UsersController < ApplicationController
 	
 	def create_card
 	  @template = Template.find_by_id(params[:temp_id])
+	  session[:temp_id] = params[:temp_id]
 	  @card_back_div_style = "background:url(" + @template.back.url + ")"
 	  
 	  #--- selection picture div coordination
@@ -52,6 +53,18 @@ class UsersController < ApplicationController
 	def create_card_input
 	  pic_id = params[:pic_id]
 	  @pic = Picture.find_by_id(pic_id)
+	  
+	  temp_id = session[:temp_id]
+	  @template = Template.find_by_id(temp_id)
+	  if @template.pic_width == 480 
+	     @pic_url = @pic.photo.url(:card480)
+	  elsif @template.pic_width == 400
+	     @pic_url = @pic.photo.url(:card400)
+	  else
+	     @pic_url = @pic.photo.url(:card280)
+	  end
+	 
+	 
 	  respond_to do |format|
 	   format.html # create_card_input.html.erb
 	   format.js
