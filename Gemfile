@@ -20,6 +20,7 @@ gem 'jquery-rails'
 
 # Specify a version of RMagick that works in your environment:
 gem 'rmagick'
+gem 'aws-s3'
 #,'~> 2.12.0', rmagick_options
 
 # weibo related 
