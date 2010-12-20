@@ -5,10 +5,10 @@ class ApplicationController < ActionController::Base
 #--------- get the current user's friends list and get the basic infor for each one -------#
   def get_user_friends
     #-1.-- initiate the friend query 
-    #friend_query = "{"count" => 20, "cursor" => -1}"
-    #logger.info("friends query ----#{friend_query}")
-    #friends = self.friends(friend_query)
-    #logger.info("friends----#{friends}")
+    friend_query = {:count => 20, :cursor => -1}
+    logger.info("friends query ----#{friend_query}")
+    friends = self.user_friends(friend_query)
+    logger.info("friends----#{friends}")
     #-2.--- get the first 200 member's page
     
     #friend_ids = Hash.new
