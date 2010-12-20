@@ -52,13 +52,12 @@ var Vboli = {
 			
 			$("#submit_card").click(function(){
 				var card_pic_id = $("#card_photo_id").attr("card_photo_id");
-				var input_text  = $("#card_input_textarea").val();
+				var input_text  = $("#card_input_text").val();
 				$.get(
 					"/card_compose.js",
 					{
 						card_pic_id		  : card_pic_id,
-						input_text 		  : input_text,
-						background_pic    : Vboli.background_pic
+						input_text 		  : input_text
 					});
 			});
 	},

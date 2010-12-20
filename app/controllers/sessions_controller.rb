@@ -22,13 +22,18 @@ class SessionsController < ApplicationController
 				:secret => session[:asecret] ,
 				:profile_image_url => user_info['profile_image_url'] })
 		end
-		if @user.save!
+		if @user.save
 			self.current_user = @user		
 		else
 			raise OauthSystem::RequestError
 		end
 		# Redirect to the show page
-		logger.info("====== user_info #{@user}")
+		#---- test get user friends #20101220
+		 logger.info("user getting friends")
+	   get_user_friends()
+	   #friend_ids = self.friend_ids();
+     #logger.info("friends_id= #{friend_ids}")
+	  
 		redirect_to user_path(@user)
 		
   	rescue
@@ -46,4 +51,6 @@ class SessionsController < ApplicationController
 		flash[:notice] = "You have been logged out."
 		redirect_to root_url
 	end
+	
+	
 end

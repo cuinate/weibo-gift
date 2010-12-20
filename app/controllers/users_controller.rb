@@ -41,6 +41,8 @@ class UsersController < ApplicationController
 	  input_width = (@template.input_width + 10).to_s
 	  input_height = (@template.input_height + 10).to_s
 	  @card_input_div_style = "top:" + input_y + "px;left:" + input_x + "px;width:" + input_width + "px;height:" + input_height + "px;"
+	  
+	  #---- text input area coordination style
 	  text_width = @template.input_width.to_s
 	  text_height = @template.input_height.to_s
 	  @card_input_text_style = "width:" + text_width + "px;height:" + text_height +"px;"
@@ -70,6 +72,6 @@ class UsersController < ApplicationController
 	   format.js
     end
   end
-	
+#--------- protected methods -------------#
 
 end

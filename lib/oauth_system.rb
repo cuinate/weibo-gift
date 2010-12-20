@@ -86,7 +86,27 @@ protected
 		redirect_to root_url
 	end
 
+	# controller wrappers for weibo API methods	
+	def friend_ids(query={})
+	  logger.info("calling [friends_ids]")
+	  self.weibo_agent.friend_ids(query)
+	  rescue => err
+  		RAILS_DEFAULT_LOGGER.error "Failed to get friends via OAuth for #{current_user.inspect}"
+  		flash[:error] = "weibo API failure (getting friends)"
+  		return
+	end
 	
+	def user(id, query={})
+	  self.weibo_agent.user(id, query)
+	  rescue => err
+  		RAILS_DEFAULT_LOGGER.error "Failed to get friends via OAuth for #{current_user.inspect}"
+  		flash[:error] = "weibo API failure (getting friends)"
+  		return
+	end
+	
+	def friends(query={})
+	  self.weibo_agent.friends(query)
+	end
 
 	# controller wrappers for twitter API methods
 
