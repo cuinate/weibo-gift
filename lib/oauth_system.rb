@@ -31,6 +31,10 @@ protected
     end 
   
     # weibo_agent 
+    def update_agent
+      self.oauth.authorize_from_access(oauth.access_token.token, oauth.access_token.secret)
+      self.weibo_agent = Weibo::Base.new(oauth)
+    end
     
     def weibo_agent( user_token = nil, user_secret = nil )
       self.oauth.authorize_from_access(user_token, user_secret)
@@ -87,10 +91,7 @@ protected
 		redirect_to root_url
 	end
 
-  def update_agent
-    self.oauth.authorize_from_access(oauth.access_token.token, oauth.access_token.secret)
-    self.weibo_agent = Weibo::Base.new(oauth)
-  end
+  
 	# controller wrappers for weibo API methods	
 	def friend_ids(query={})
 	  logger.info("calling [friends_ids]")
