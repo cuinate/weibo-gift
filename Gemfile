@@ -18,8 +18,18 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 #jquery gem
 gem 'jquery-rails'
 
+# Figure out how to get RMagick:
+rmagick_options = {:require => false}
+rmagick_options.update({
+  :git => 'git://github.com/refinerycms/rmagick.git',
+  :branch => 'windows'
+}) if Bundler::WINDOWS
+
 # Specify a version of RMagick that works in your environment:
-gem 'rmagick'
+gem 'rmagick', '~> 2.12.0', rmagick_options
+
+# Specify a version of RMagick that works in your environment:
+#gem 'rmagick'
 gem 'aws-s3'
 #,'~> 2.12.0', rmagick_options
 
