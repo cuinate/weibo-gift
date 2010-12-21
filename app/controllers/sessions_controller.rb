@@ -11,20 +11,18 @@ class SessionsController < ApplicationController
 		# We have an authorized user, save the information to the database.
 		@user = User.find_by_screen_name(user_info['screen_name'])
 		# get user's friend 
-		user_friends = get_user_friends()		
+		#user_friends = get_user_friends()		
 		if @user
 			@user.token = session[:atoken]
 			@user.secret = session[:asecret] 
 			@user.profile_image_url = user_info['profile_image_url']
-			@user.friends_info = user_friends
 		else
 			@user = User.new({ 
 				:weibo_id => user_info['id'],
 				:screen_name => user_info['screen_name'],
 				:token => session[:atoken],
 				:secret => session[:asecret] ,
-				:profile_image_url => user_info['profile_image_url'],
-				:friends_info => user_friends })
+				:profile_image_url => user_info['profile_image_url']})
 		end
 		if @user.save
 			self.current_user = @user		

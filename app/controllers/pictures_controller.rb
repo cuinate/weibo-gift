@@ -38,21 +38,21 @@ class PicturesController < ApplicationController
      
      @out_file_path = ''
      @user = current_user
-     logger.info("==== card compose :: current_user_name")
- 		 logger.info(@user.screen_name)
+     
      @picture = Picture.new
-     card_pic_id        = params[:card_pic_id]
+     card_photo_url	    = params[:card_photo_url]
 		 input_text         = params[:input_text]
-		 background_pic     = params[:background_pic] 
+		 template_id        = session[:temp_id] # get the template ID from session
 
-		 @user_pic = Picture.find_by_id(card_pic_id)
+		 #@user_pic = Picture.find_by_id(card_pic_id)
+		 #user_pic_url_origin= @user_pic.photo.url(:card)
+		 #splitted_url = user_pic_url_origin.split("?")
+		 splitted_url = card_photo_url.split("?")		 
+		 user_pic_url = splitted_url[0]  # the url of photo user just uploaded
 		 
-		 user_pic_url_origin= @user_pic.photo.url(:card)
-		 splitted_url = user_pic_url_origin.split("?")
-		 user_pic_url = splitted_url[0]
-		 
-		 logger.info("==== card compose :: user_pic_url")
-		 logger.info(user_pic_url)
+     #. 1 get the other paramters from template
+     @template = Template.find_by_id(template_id)
+     
 		 # long text parser        
       $KCODE='utf8'
       d_str =''
