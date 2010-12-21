@@ -6,6 +6,7 @@ module OauthSystem
   Weibo::Config.api_key = "2942145647"
   Weibo::Config.api_secret = "5cc0026c470a25a6070237e07ade5f27"
   
+
   
 	class GeneralError < StandardError
 	end
@@ -21,7 +22,7 @@ protected
     # Inclusion hook to make #current_user, #logged_in? available as ActionView helper methods.
     def self.included(base)
 #		base.send :helper_method, :current_user, :oauth_login_required, :logged_in? if base.respond_to? :helper_method
-		base.send :helper_method, :current_user, :logged_in? if base.respond_to? :helper_method
+		base.send :helper_method, :current_user, :logged_in? ,:friends if base.respond_to? :helper_method
     end
 
     # oAuth 
@@ -103,13 +104,35 @@ protected
   		flash[:error] = "weibo API failure (getting friends)"
   		return
 	end
-	
-	def user_friends(query={})
-	  self.weibo_agent.friends(query)
+	# get weibo friends :status friends (cursor based implementation)
+	# return friends hash (next_cursor + users + previous_cursor)
+	def one_page_friends(cursor = -1)
+	  friend_query = {:count => 200, :cursor => cursor}
+    logger.info("self.weibo_agent----#{self.weibo_agent}")
+	  friends = self.weibo_agent.friends(friend_query)
+	  #friends = Weibo::Base.new(oauth).friends(friend_query)
 	  rescue => err
-  		RAILS_DEFAULT_LOGGER.error "Failed to get friends via OAuth for #{current_user.inspect}"
-  		flash[:error] = "weibo API failure (getting friends)"
+  		RAILS_DEFAULT_LOGGER.error "Failed to get one page friends via OAuth for #{current_user.inspect}"
+  		flash[:error] = "weibo API failure (getting one page friends)"
   		return
+	end
+	# get weibo friends :status friends 
+	# returns: array of all friends for the given user
+	def friends
+	      cursor = -1
+    	  page = 0
+    	  friends = []
+    	  begin 
+    	    friendspage = one_page_friends(cursor)
+    	    page +=1
+    	    friends += friendspage["users"] if friendspage
+    	    cursor = friendspage["next_cursor"] 
+    	  end until cursor == 0
+    	  friends
+   rescue => err
+     	  RAILS_DEFAULT_LOGGER.error "exception in getting user's friends #{err}"
+        raise err
+        return
 	end
 
 	

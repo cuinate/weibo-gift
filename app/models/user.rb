@@ -1,12 +1,11 @@
 class User < ActiveRecord::Base
    has_many :pictures
    attr_accessor :user_friends
-   
-   def friend_ids=(val)
-     self[:user_friends] = val
+   def user_friends=(val)
+     @user_friends = val
    end
    
-   def friend_ids
-     self[:user_friends]
+   def user_friends
+     @user_friends
    end
 end

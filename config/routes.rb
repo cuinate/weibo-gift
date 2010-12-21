@@ -7,13 +7,15 @@ WeiboGift::Application.routes.draw do
   match 'user'  => 'users#index', :as => :user  
 #  match 'connect' => 'user#connect', :as => :connect
   match "callback" => 'sessions#callback', :as => :callback
+
   match 'login' => 'users#new', :as => :login
   match "signout"  => 'sessions#signout', :as => :signout
   
 # cards 
   match 'createcard' => 'users#create_card', :as => :createcard
   match 'create_card_input' => 'users#create_card_input', :as => :create_card_input
-  
+# friends
+  match 'get_friends' => 'users#get_friends', :as => :get_friends  
 # picture 
   match 'card_compose' => 'pictures#card_compose', :as => :card_compose
   

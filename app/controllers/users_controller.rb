@@ -1,7 +1,6 @@
-
 class UsersController < ApplicationController
   before_filter :oauth_login_required, :except => [ :callback, :signout, :index ]
-  
+  #@user_friends = Array.new
   def index
 	end
 
@@ -72,6 +71,20 @@ class UsersController < ApplicationController
 	   format.js
     end
   end
+  
+# --- get the current_user's friends list 
+  def get_friends
+    #---- test get user friends #20101220
+		 #logger.info("user getting friends")
+	   #@user_friends = current_user.friends_info
+    respond_to do |format|
+	   format.html # create_card_input.html.erb
+	   format.js
+    end
+  
+  end
 #--------- protected methods -------------#
+protected
+
 
 end
