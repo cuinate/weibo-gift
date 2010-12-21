@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
+#  include OauthSystem
   before_filter :oauth_login_required, :except => [ :callback, :signout, :index ]
-  #@user_friends = Array.new
+  @user_friends = Array.new
   def index
 	end
 
@@ -74,6 +75,13 @@ class UsersController < ApplicationController
   
 # --- get the current_user's friends list 
   def get_friends
+    @user = current_user
+    user_token  = current_user.token
+    user_secret = current_user.secret
+    logger.info("[user]current oauthe ===#{self.oauth}")
+    self.oauth.authorize_from_access(user_token, user_secret)
+    self.weibo_agent = Weibo::Base.new(oauth)
+    @user_friends = get_user_friends()
     #---- test get user friends #20101220
 		 #logger.info("user getting friends")
 	   #@user_friends = current_user.friends_info

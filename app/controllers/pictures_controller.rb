@@ -53,6 +53,8 @@ class PicturesController < ApplicationController
      #. 1 get the other paramters from template
      @template = Template.find_by_id(template_id)
      
+     temp_back_url = @template.back.url
+     logger.info("template back url : #{temp_back_url}")
 		 # long text parser        
       $KCODE='utf8'
       d_str =''

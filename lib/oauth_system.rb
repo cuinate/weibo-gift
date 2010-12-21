@@ -87,6 +87,10 @@ protected
 		redirect_to root_url
 	end
 
+  def update_agent
+    self.oauth.authorize_from_access(oauth.access_token.token, oauth.access_token.secret)
+    self.weibo_agent = Weibo::Base.new(oauth)
+  end
 	# controller wrappers for weibo API methods	
 	def friend_ids(query={})
 	  logger.info("calling [friends_ids]")
@@ -104,11 +108,13 @@ protected
   		flash[:error] = "weibo API failure (getting friends)"
   		return
 	end
+	
 	# get weibo friends :status friends (cursor based implementation)
 	# return friends hash (next_cursor + users + previous_cursor)
 	def one_page_friends(cursor = -1)
 	  friend_query = {:count => 200, :cursor => cursor}
-    logger.info("self.weibo_agent----#{self.weibo_agent}")
+    logger.info("[Oauth system --- oauth]----#{self.oauth}")
+    update_agent()
 	  friends = self.weibo_agent.friends(friend_query)
 	  #friends = Weibo::Base.new(oauth).friends(friend_query)
 	  rescue => err

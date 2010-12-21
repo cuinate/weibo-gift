@@ -11,7 +11,8 @@ class SessionsController < ApplicationController
 		# We have an authorized user, save the information to the database.
 		@user = User.find_by_screen_name(user_info['screen_name'])
 		# get user's friend 
-		#user_friends = get_user_friends()		
+		#user_friends = get_user_friends()	
+		logger.info(user_friends)	
 		if @user
 			@user.token = session[:atoken]
 			@user.secret = session[:asecret] 

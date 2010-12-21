@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   #--------- get the current user's friends list and get the basic infor for each one -------#
     def get_user_friends
       #-1.-- get all friends back
+       logger.info("[app]current oauthe ===#{self.oauth}")
       friends = self.friends()
       #-2.--- get the wanted information saved
       user_friends = Array.new
