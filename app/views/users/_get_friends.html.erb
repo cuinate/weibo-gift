@@ -1,0 +1,22 @@
+
+	<div id = "friends_wrapper">
+		<ul class = "friends_thumb">
+	
+		<% @user_friends.each do |p| %>
+		<li>
+		<div class="friend_img">
+			<%= image_tag  p["profile_image_url"], :class => 'friend_profile_img'%> 
+			<input type="checkbox" id="<%=p["weibo_id"]%>" class="friend_select">
+		</div>
+		<div class= "friend_name">
+		
+			<span style="font-size:12px; color:#333;display:block;overflow:hidden;"><%= p["screen_name"] %></span>
+		</div>
+		</li>
+
+		<%end%>
+		</ul>
+	</div>
+	<div id= "card_pic_demo">
+		<%= image_tag  @card_pic_demo_url, :class => 'card_pic_demo_url'%> 
+	</div>

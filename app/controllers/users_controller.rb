@@ -82,9 +82,10 @@ class UsersController < ApplicationController
     self.oauth.authorize_from_access(user_token, user_secret)
     self.weibo_agent = Weibo::Base.new(oauth)
     @user_friends = get_user_friends()
-    #---- test get user friends #20101220
-		 #logger.info("user getting friends")
-	   #@user_friends = current_user.friends_info
+    
+    @card_pic = Picture.find_by_id(params[:card_pic_id])
+    @card_pic_demo_url = @card_pic.photo.url(:card400)
+    
     respond_to do |format|
 	   format.html # create_card_input.html.erb
 	   format.js

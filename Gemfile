@@ -28,6 +28,7 @@ rmagick_options.update({
 # Specify a version of RMagick that works in your environment:
 gem 'rmagick', '~> 2.12.0', rmagick_options
 
+gem "will_paginate", "~> 3.0.pre2"
 # Specify a version of RMagick that works in your environment:
 #gem 'rmagick'
 gem 'aws-s3'

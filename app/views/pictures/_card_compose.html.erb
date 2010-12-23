@@ -2,12 +2,11 @@
 	<div class="wrapper">
 
 		 <div id="pic_show">
-			
 			<div id="big_picture_wrapper">
 				<div id="card_picture">
 					
 					<%= image_tag  @picture.photo.url(:original)%>		
-					
+				<div id="card_pic_id" style="display:none;" card_pic_id="<%= @picture.id %>"></div>
 				</div>
 				<!-- big picture end-->
 			</div>

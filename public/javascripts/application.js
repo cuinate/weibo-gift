@@ -29,7 +29,15 @@ var Vboli = {
 					});
 			}
 			
+			$("#get_friends_send").click(function(){
+				var card_pic_id = $("#card_pic_id").attr("card_pic_id");
+				$.get(
+					"/get_friends.js",
+					{
+						card_pic_id:card_pic_id
+					});
 		
+			});
 			$("#step1").click(function(){
 				//alert("got you!");
 				var step_now = "step1";

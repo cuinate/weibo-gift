@@ -1,18 +1,69 @@
 <div id="header">
 	<div class="wrapper">
 		<div class="top-nav">
-			<a href="#" class="logo">豆</a>
-			
+			<div class = "card_nav">
+				<ul>
+					<li>
+						<div class ="card_steps">
+							<div class = "card_steps_navi">
+								<%= image_tag "background/template.png"%>
+								<span class = "step_descp"> 选择模版</span>
+							</div>
+							<div class = "card_steps_which active">
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class ="card_steps">
+							<div class = "card_steps_navi">
+								<%= image_tag "background/card_create.png"%>
+								<span class = "step_descp"> 制作贺卡</span>
+							</div>
+							<div class = "card_steps_which unactive">
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class ="card_steps">
+							<div class = "card_steps_navi">
+								<%= image_tag "background/preview.png"%>
+								<span class = "step_descp"> 效果预览</span>
+							</div>
+							<div class = "card_steps_which unactive">
+							</div>
+						</div>
+					</li>
+					<li>
+						<a href="javascript:void(0)" id="get_friends_send">
+						<div  class ="card_steps">
+							<div class = "card_steps_navi">
+								<%= image_tag "background/send2.png"%>
+								<span class = "step_descp"> 发送好友</span>
+							</div>
+							<div class = "card_steps_which unactive">
+							</div>
+						</div>
+						</a>
+					</li>
+				</ul>
+			</div>
 			<div class="login">
 				<%if session[:weibo_id]%>
 				<% @user = User.find_by_weibo_id(session[:weibo_id])%>
-					欢迎 ，<%=@user.screen_name %> 
-				<%= link_to "signout", signout_url%>
+				<div id="user_profile_img_div">
+					<%= image_tag @user.profile_image_url, :class => 'profile_image_url'%>
+				</div>
+				<div id="user_profile_manage">
+			     <%=@user.screen_name %> 
+			     <div id="user_profile_signup">
+					<%= link_to "signout", signout_url,:class =>'login_signout'%>
+					<%= link_to "signout", signout_url,:class =>'login_signout'%>
+				</div>
+				</div>
 				<%else%>
 				<a href="/login"> <%= image_tag "weibo_connect.png"%> </a>
 				<%end%>
 			</div>
-
 		</div>
 	</div>
 </div><!--header end -->
