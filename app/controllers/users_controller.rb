@@ -75,16 +75,18 @@ class UsersController < ApplicationController
   
 # --- get the current_user's friends list 
   def get_friends
+  
     @user = current_user
-    user_token  = current_user.token
-    user_secret = current_user.secret
-    logger.info("[user]current oauthe ===#{self.oauth}")
-    self.oauth.authorize_from_access(user_token, user_secret)
-    self.weibo_agent = Weibo::Base.new(oauth)
-    @user_friends = get_user_friends()
+#    user_token  = current_user.token
+#    user_secret = current_user.secret
+#    logger.info("[user]current oauthe ===#{self.oauth}")
+#    self.oauth.authorize_from_access(user_token, user_secret)
+#    self.weibo_agent = Weibo::Base.new(oauth)
+ 
+     @user_friends = get_user_friends()
     
-    @card_pic = Picture.find_by_id(params[:card_pic_id])
-    @card_pic_demo_url = @card_pic.photo.url(:card400)
+#    @card_pic = Picture.find_by_id(params[:card_pic_id])
+#    @card_pic_demo_url = @card_pic.photo.url(:card400)
     
     respond_to do |format|
 	   format.html # create_card_input.html.erb

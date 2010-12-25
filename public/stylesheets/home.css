@@ -90,7 +90,11 @@ width: 100%;
 //background-color:#074762;
 //border-bottom:3px solid #c33c26;
 }
-#header { padding: 0; margin-bottom: 0px ; width:100%; background: url(../images/background/header_back.png) repeat-x;)}
+#header { padding: 0; margin-bottom: 0px ; width:100%;
+background-color: #deeff6;
+border-bottom:1px solid #999;
+border-top:1px solid #999;
+}
 #header .wrapper { margin: 0px auto 0px auto; }
 #header .top-nav { height: 62px; border-bottom: none;  }
 #header .top-nav .card_nav{ height :62px; 
@@ -116,7 +120,7 @@ width:130px;
 margin-top:15px;
 float:right;
 font-size:16px;
-color:white;
+color:#437792;
 font-weight:bold;
 }
 .card_nav ul li .card_steps_navi{
@@ -131,9 +135,9 @@ float:left;
 {
 margin-top :2px;
 float:left;
-width:135px;
+width:50px;
 height:3px;
-background-color:white;
+background-color:#437792;
 }
 .active{
 display:block;
@@ -163,7 +167,7 @@ text-decoration:none;
 margin-right:-30px;
 float:right;
 width:160px;
-color:white;
+color:#437792;
 //border:1px solid white;
 }
 #user_profile_signup{
@@ -298,7 +302,33 @@ width: 1000px;
 margin: 10px auto 10px auto;
 //border:1px dotted red;
 }
+#friend_selected_show_div{
+display:none;
+margin: 10px auto 10px 40px;
+width:1000px;
+height: 40px;
+//border:1px solid red;
+}
+.firend_selected_div{
+//width:100px;
+height:20px;
+background: #E0E5EE;
+border: 1px solid #CCD5E4;
+float: left;
+margin: 1px 5px 1px 0px;
+padding: 0px 5px;
+white-space: nowrap;
+font-family: Arial, '\9';
+}
+#pagination_div{
+margin: 10px auto 10px 40px;
+width:900px;
+//border:1px dotted red;
+float:left;
+}
 ul.friends_thumb {
+display:block;
+//float:left;
 list-style: none;
 margin: 0px;
 padding: 0px;
@@ -333,6 +363,8 @@ width:50px;
 height:50px;
 display:block;
 float:left;
+margin-left:10px;
+cursor:pointer;
 }
 ul.friends_thumb li .friend_img .friend_select{
 width:15px;
@@ -342,8 +374,9 @@ display:block;
 float:right;
 }
 ul.friends_thumb li .friend_name{
-background-color:#b7b49f;
-color: #4e483e;
+border-top:1px solid #999;
+background-color:#deeff6;
+color: #333;
 width:80px;
 height:40px;
 margin: 10px auto 10px auto;

@@ -38,6 +38,39 @@ var Vboli = {
 					});
 		
 			});
+			$(".friend_profile_img").click(function(){
+				var friend_name = $(this).attr("friend_name");
+				var friend_id    = $(this).attr("friend_id");
+				//alert("friend_name + id:" + friend_name + friend_id );
+				//
+				var friend_added =	$('<div/>',{
+					'class':'firend_selected_div',
+					'id'   : friend_id
+				})
+				.append(friend_name)
+				.append($('<a/>',{
+					'class': 'remove_selected_friends',
+					 click : function() {
+			            var id = $("this").attr("id");
+						var div_id = "#" + id;
+						$('div').remove(div_id);
+			           },
+					 'id'   :   friend_id 
+				}))
+		        .append($('<img/>', {
+				  'style': 'margin-left:3px; cursor:pointer;',
+		           'src' : '/images/del.gif',
+		         }));
+		
+				$("#friend_selected_show_div").show();
+				$("#friends_added").append(friend_added);
+			});
+			
+			$(".remove_selected_friends").click(function(){
+				var id = $("this").attr("id");
+				var div_id = "#" + id;
+				$('div').remove(div_id);
+			});
 			$("#step1").click(function(){
 				//alert("got you!");
 				var step_now = "step1";

@@ -10,7 +10,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101218124644) do
+ActiveRecord::Schema.define(:version => 20101224050803) do
+
+  create_table "friends", :force => true do |t|
+    t.integer  "weibo_id",          :null => false
+    t.string   "screen_name"
+    t.string   "profile_image_url"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "friends", ["weibo_id"], :name => "index_friends_on_weibo_id", :unique => true
 
   create_table "pictures", :force => true do |t|
     t.integer  "user_id"
@@ -55,5 +66,18 @@ ActiveRecord::Schema.define(:version => 20101218124644) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "users", :force => true do |t|
+    t.integer  "weibo_id",          :null => false
+    t.string   "screen_name"
+    t.string   "token"
+    t.string   "secret"
+    t.string   "profile_image_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["screen_name"], :name => "index_users_on_screen_name", :unique => true
+  add_index "users", ["weibo_id"], :name => "index_users_on_weibo_id", :unique => true
 
 end

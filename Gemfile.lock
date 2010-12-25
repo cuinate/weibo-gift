@@ -24,6 +24,8 @@ GEM
       activesupport (= 3.0.1)
       arel (~> 1.0.0)
       tzinfo (~> 0.3.23)
+    activerecord-import (0.2.3)
+      activerecord (~> 3.0.0)
     activeresource (3.0.1)
       activemodel (= 3.0.1)
       activesupport (= 3.0.1)
@@ -93,6 +95,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  activerecord-import (>= 0.2.0)
   aws-s3
   jquery-rails
   mime-types
@@ -102,4 +105,4 @@ DEPENDENCIES
   rmagick (~> 2.12.0)
   sqlite3-ruby
   weibo
-  will_paginate (~> 3.0.pre2)
+  will_paginate

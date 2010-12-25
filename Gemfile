@@ -27,8 +27,10 @@ rmagick_options.update({
 
 # Specify a version of RMagick that works in your environment:
 gem 'rmagick', '~> 2.12.0', rmagick_options
-
-gem "will_paginate", "~> 3.0.pre2"
+# user's weibo friends related gem
+gem "will_paginate"
+#, "~> 3.0.pre2"
+gem "activerecord-import", ">=0.2.0"
 # Specify a version of RMagick that works in your environment:
 #gem 'rmagick'
 gem 'aws-s3'
