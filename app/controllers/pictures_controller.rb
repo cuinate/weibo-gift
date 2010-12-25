@@ -76,9 +76,9 @@ class PicturesController < ApplicationController
       frame_file = 'frame.png'
       if @template.pic_which_frame==1 
         frame_file = 'frame-big.png'
-      else if @template.pic_which_frame==2
+      elsif @template.pic_which_frame==2
         frame_file = 'frame-mid.png'
-      else if @template.pic_which_frame==3
+      elsif @template.pic_which_frame==3
         frame_file = 'frame-small.png'
       else 
         logger.error ("====  ERROR: no frame is selected. use default")

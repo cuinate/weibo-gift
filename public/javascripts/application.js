@@ -48,25 +48,30 @@ var Vboli = {
 					'id'   : friend_name
 				})
 				.append(friend_name)
+				.append($('<img/>', {
+				  'style': 'margin-left:3px; margin-top:2px;cursor:pointer;',
+				  'class' : 'remove_selected_friends',
+		           'src' : '/images/del.png',
+		           click: function() {
+		             	var id = $(this).attr("div_id");
+						var div_id = "#" + id;
+						$(div_id).remove();
+		           },
+				   'div_id'   : friend_name
+		         }));
+	
+				/*
 				.append($('<a/>',{
 					'class': 'remove_selected_friends',
-					 click : function() {
-			            var id = $("this").attr("id");
-						var div_id = "#" + id;
-						$('div').remove(div_id);
-			           },
-					 'id'   :   friend_id 
+					 'id'   :   friend_name
 				}))
-		        .append($('<img/>', {
-				  'style': 'margin-left:3px; cursor:pointer;',
-		           'src' : '/images/del.gif',
-		         }));
-		
+				*/
 				$("#friend_selected_show_div").show();
 				$("#friends_added").append(friend_added);
+				
 			});
 			
-			$(".remove_selected_friends").click(function(){
+			$('.remove_selected_friends').click(function(){
 				var id = $("this").attr("id");
 				var div_id = "#" + id;
 				$('div').remove(div_id);

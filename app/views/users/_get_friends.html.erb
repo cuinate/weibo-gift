@@ -23,7 +23,7 @@
 		// create one page 
 		$("#friends_pagination").pagination(num_friends,{
 			callback       : pageSelCallback,
-			items_per_page : 30,
+			items_per_page : 40,
 			next_text      : "下一页",
 			prev_text       : "上一页"
 		});
@@ -32,7 +32,9 @@
 		initPagination();
 	});
 </script>
-  
+<div id="pic_show_arrow_left">
+	<%= image_tag "arrow_left.png", :class => 'pic_arrow_navi'%>
+</div>  
     
 	<div id = "friends_wrapper">
 		
@@ -40,7 +42,7 @@
 			<div id = "friends_added">
 			</div>
 			<div id="send_card" class="submit_btn" style="float:right;">发送</div>
-<!-->			<div id='card_pic_id' card_pic_id="<%=@card_pic_id%>"></div> -->
+<!--			<div id='card_pic_id' card_pic_id="<%=@card_pic_id%>"></div> -->
 		</div>
 		
 		<ul id  class = "friends_thumb">
@@ -54,7 +56,9 @@
 	<div id= "card_pic_demo">
 
 	</div>
-
+<div id="pic_show_arrow_right">	
+<%= image_tag "arrow_right.png", :class => 'pic_arrow_navi'%>
+</div>
 	<!--- hidden page result -->
 		<div id="friends_all" style="display:none;">
 	

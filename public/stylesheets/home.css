@@ -287,7 +287,7 @@ margin-right:75px;
 /*=== content part        ===*/
 /*============================*/
 #content_part{
-width: 1000px;
+width: 1050px;
 margin: 10px auto 10px auto;
 //border:1px solid blue;
 }
@@ -295,9 +295,10 @@ margin: 10px auto 10px auto;
 /*=== friends thumb show  ===*/
 /*============================*/
 #friends_wrapper{
-width: 800px;
-margin: 10px auto 10px auto;
+width: 900px;
+margin: 10px 10px 10px auto;
 //border:1px dotted red;
+float:left;
 }
 #friend_selected_show_div{
 display:none;
@@ -468,13 +469,15 @@ padding-left:80px;
 /*============================*/
 #temp_back_div{
 background: url(../images/background/temp_bg_b.png);
-border : 1px solid #e9e9e9;
-margin: 2px auto 10px 0px;
+//border : 1px solid #e9e9e9;
+margin: 2px auto 10px 5px;
 width: 820px;
 height: 620px;
+float:left;
 //-webkit-box-shadow: #333 0px 0px 5px;
 //-moz-box-shadow:    #333 0px 0px 5px;
 }
+
 #card_back_div{
 position:absolute;
 //border:1px solid red;
@@ -521,8 +524,14 @@ border:1px dotted red;
 }
 #pic_show_arrow_left{
 float:left;
-width:100px;
-height:440px;
+width:60;
+height:620px;
+//border:1px dotted red;
+}
+#pic_show_arrow_right{
+float:left;
+width:60px;
+height:620px;
 //border:1px dotted red;
 }
 #big_picture_wrapper{
@@ -548,14 +557,9 @@ width:820;
 height:620;
 float:left;
 }
-#pic_show_arrow_right{
-//float:left;
-width:50px;
-height:620px;
-//border:1px dotted red;
-}
+
 .pic_arrow_navi{
-margin-top:150px;
+margin-top:250px;
 }
 /* making card --- card content*/
 #card_content{}
