@@ -41,8 +41,6 @@ var Vboli = {
 			$(".friend_profile_img").click(function(){
 				var friend_name = $(this).attr("friend_name");
 				var friend_id    = $(this).attr("friend_id");
-				//alert("friend_name + id:" + friend_name + friend_id );
-				//
 				var friend_added =	$('<div/>',{
 					'class':'firend_selected_div',
 					'id'   : friend_name
