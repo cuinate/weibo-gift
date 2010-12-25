@@ -7,5 +7,8 @@ class Template < ActiveRecord::Base
                     },
                     :url => "/system/template/:id/:style/:filename"
   has_attached_file :back, 
-                    :url => "/system/template/:id/back/:filename"                  
+                    :url => "/system/template/:id/back/:filename"  
+  has_attached_file :frame,
+                    :url => "/system/template/:id/frame/:filename"  
+                  
 end

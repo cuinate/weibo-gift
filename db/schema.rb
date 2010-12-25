@@ -63,6 +63,9 @@ ActiveRecord::Schema.define(:version => 20101224050803) do
     t.string   "back_file_name"
     t.string   "back_content_type"
     t.integer  "back_file_size"
+    t.string   "frame_file_name"
+    t.string   "frame_content_type"
+    t.integer  "frame_file_size"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
