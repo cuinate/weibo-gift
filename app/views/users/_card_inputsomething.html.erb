@@ -1,41 +1,5 @@
-<%= render :partial => "show" %>
+
 <div id="card_photo_id" card_photo_id="<%=@pic.id%>"></div>
 <div id="card_photo_url" card_photo_url="<%=@pic_url%>"></div>
 <%= image_tag  @pic_url%>	
-<div id="pic_show_arrow_right">
-		<%= image_tag  'arrow_right.png', :class => 'pic_arrow_navi'%>
-</div>
-<!--
-<div id="card_content">
-	<div class="wrapper">
 
-		 <div id="pic_show">
-			
-			<div id="big_picture_wrapper">
-				<div id="big_picture">
-					<div id="card_input_words">
-						<p id ="sel_caption"> 说点啥吧：</p>
-						<textarea id="card_input_textarea" > </textarea>
-						<div id="submit_card" class="submit_btn">做完了！</div>
-					</div>
-					<div id="card_photo_right">
-						<div id="card_photo_wrapper">
-							<span></span>
-							<div id="card_photo_id" card_photo_id="<%=@pic.id%>"></div>
-							<%= image_tag  @pic.photo.url(:card), :class => 'card_photo_style' %>		
-						</div>
-					</div>
-				
-
-				</div>
-				
-			</div>
-
-			<div id="pic_show_arrow_right">
-			
-			</div>
-		
-		</div>
-	</div>
-</div>
--->

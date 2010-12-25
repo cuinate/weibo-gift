@@ -86,14 +86,11 @@ width: 100%;
 //background: transparent url(../images//background.jpg) no-repeat 50% 0%;
 }
 /* Header */
-#header { width:100%;margin:0 0 10px 0;
-//background-color:#074762;
-//border-bottom:3px solid #c33c26;
-}
-#header { padding: 0; margin-bottom: 0px ; width:100%;
+
+#header { padding: 0; margin:0 0 10px 0; ; width:100%;
 background-color: #deeff6;
 border-bottom:1px solid #999;
-border-top:1px solid #999;
+border-top:1px solid black;
 }
 #header .wrapper { margin: 0px auto 0px auto; }
 #header .top-nav { height: 62px; border-bottom: none;  }
@@ -292,13 +289,13 @@ margin-right:75px;
 #content_part{
 width: 1000px;
 margin: 10px auto 10px auto;
-//border:1px dotted red;
+//border:1px solid blue;
 }
 /*============================*/
 /*=== friends thumb show  ===*/
 /*============================*/
 #friends_wrapper{
-width: 1000px;
+width: 800px;
 margin: 10px auto 10px auto;
 //border:1px dotted red;
 }
@@ -424,18 +421,18 @@ padding: 0px;
 }
 ul.temp_thumb li {
 //border:1px dotted red;
-background: url(../images/background/temp_bg.png) no-repeat; 
-//background-color: white;
+//background: url(../images/background/temp_bg.png) no-repeat; 
+background-color: white;
 display: block;
 float: left;
-height: 225px;
+height: 235px;
 margin-left:30px;
 margin-bottom: 12px;
 overflow: hidden;
 //padding: 11px 11px 0px;
 width: 235px;
-//-webkit-box-shadow: #333 0px 0px 5px;
-//-moz-box-shadow:    #333 0px 0px 5px;
+-webkit-box-shadow: #333 0px 0px 5px;
+-moz-box-shadow:    #333 0px 0px 5px;
 }
 ul.temp_thumb li .temp_img_div {
 //background: url(../images/background/img_bg.png) ; 
@@ -456,21 +453,23 @@ position: relative;
 width: 200px;
 }
 ul.temp_thumb li .temlate_sel{
+border-top:1px solid #deeff6;
 width:230px;
-height:35px;
-//background-color: #b7b49f;
-color: #4e483e;
-font-size:15px;
+height:30px;
+//background-color: #deeff6;
+color: #437792;
+font-size:16px;
+font-weight: bold;
 padding-top:6px;
-padding-left:10px;
+padding-left:80px;
 }
 /*============================*/
 /*=== card creating        ===*/
 /*============================*/
 #temp_back_div{
 background: url(../images/background/temp_bg_b.png);
-//border : 1px solid #e9e9e9;
-margin: 2px auto 10px auto;
+border : 1px solid #e9e9e9;
+margin: 2px auto 10px 0px;
 width: 820px;
 height: 620px;
 //-webkit-box-shadow: #333 0px 0px 5px;
@@ -550,9 +549,9 @@ height:620;
 float:left;
 }
 #pic_show_arrow_right{
-float:right;
-width:100px;
-height:440px;
+//float:left;
+width:50px;
+height:620px;
 //border:1px dotted red;
 }
 .pic_arrow_navi{

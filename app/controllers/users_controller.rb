@@ -84,12 +84,12 @@ class UsersController < ApplicationController
 #    self.weibo_agent = Weibo::Base.new(oauth)
  
      @user_friends = get_user_friends()
-    @card_pic_id = params[:card_pic_id]
-    @card_pic = Picture.find_by_id(params[:card_pic_id])
-    @card_pic_demo_url = @card_pic.photo.url(:card400)
-    logger.info(@card_pic_demo_url)
-     splitted_url = @card_pic_demo_url.split("?")		 
-		 @user_card_url = splitted_url[0]  # the url of photo user just uploaded
+#    @card_pic_id = params[:card_pic_id]
+#    @card_pic = Picture.find_by_id(params[:card_pic_id])
+#   @card_pic_demo_url = @card_pic.photo.url(:card400)
+#    logger.info(@card_pic_demo_url)
+#     splitted_url = @card_pic_demo_url.split("?")		 
+#		 @user_card_url = splitted_url[0]  # the url of photo user just uploaded
     respond_to do |format|
 	   format.html # create_card_input.html.erb
 	   format.js

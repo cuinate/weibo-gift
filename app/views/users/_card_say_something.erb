@@ -10,99 +10,10 @@
 		</div>
 		<div id="card_input_div" class="card_input_div" style ="<%=@card_input_div_style%>">		
 			<textarea id="card_input_text" class="card_input_text" style ="<%=@card_input_text_style%>">		
-
 			</textarea>
 		</div>
 
     </div>
 </div>
-<div id="pic_show_arrow_right">
-		<%= image_tag  'arrow_right.png', :class => 'pic_arrow_navi'%>
-</div>
 <div id="submit_card" class="submit_btn">做完了！</div>
-<!---
-<div id="card_content">
 
-	<div class="wrapper">
-
-		 <div id="pic_show">
-			
-			<div id="big_picture_wrapper">
-				<div id="big_picture">
-					<div id="pic_sel_caption">
-						<p id ="sel_caption"> 选择心仪图片</p>
-						<p id="try"> 或者... </p>
-						<div id="upload_pic_btn" class="image_button"></div>
-					</div>
-					<div id="pic_sel_thumb">
-						<div id="pic_category">
-							<div id ="my_pic" class="pic_catetory_wrapper">
-								推荐图片
-							</div>
-							<div id = "default_pic" class="pic_catetory_wrapper_off">
-								我的图片
-							</div>
-						</div>
-						<div id ="pic_slot1" class="pic_back_slot">
-							<div id="pic_back_slot_thumb1" class="pic_selection_slot_thumb">
-								1
-							</div>
-							<div id="pic_back_slot_thumb1" class="pic_selection_slot_thumb">
-								2
-							</div>
-							<div id="pic_back_slot_thumb1" class="pic_selection_slot_thumb">
-								3
-							</div>
-						</div>
-						<div id ="pic_slot2" class="pic_back_slot">
-								<div id="pic_back_slot_thumb1" class="pic_selection_slot_thumb">
-									1
-								</div>
-								<div id="pic_back_slot_thumb1" class="pic_selection_slot_thumb">
-									2
-								</div>
-								<div id="pic_back_slot_thumb1" class="pic_selection_slot_thumb">
-									3
-								</div>
-						</div>
-							
-						<div id ="pic_slot3" class="pic_back_slot">
-								<div id="pic_back_slot_thumb1" class="pic_selection_slot_thumb">
-									4
-								</div>
-								<div id="pic_back_slot_thumb1" class="pic_selection_slot_thumb">
-									5
-								</div>
-								<div id="pic_back_slot_thumb1" class="pic_selection_slot_thumb">
-									6
-								</div>
-						</div>					
-					</div>
-				
-					<div id="upload_picture_div" class="display_off">
-
-							<span style="font-size:16px; color:#999;display:block;margin:20px 0px 10px 				
-							15px;">选择图片上传:</span>
-							<div class="spacer"></div>
-							<% form_for Picture.new(:user_id => current_user.id), :html => {:multipart => true} do |f| %>
-							    <div id="upload_photo_field">
-							    <%= f.file_field :photo %>
-							    </div>
-							    <div id="upload_photo_btn">
-							    
-								</div>
-							<% end %>
-						
-					</div>
-					
-				</div>
-			</div>
-
-			<div id="pic_show_arrow_right">
-			
-			</div>
-		
-		</div>
-	</div>
-</div>
--->
