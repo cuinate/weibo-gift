@@ -73,7 +73,17 @@ class PicturesController < ApplicationController
       #--- path and name. to be config/updated in new environments
       font_path = 'public/fonts/'
       frame_path = 'public/images/frame/'
-      frame_file = 'frame.png' # TODO: this need to be changed later
+      frame_file = 'frame.png'
+      if @template.pic_which_frame==1 
+        frame_file = 'frame-big.png'
+      else if @template.pic_which_frame==2
+        frame_file = 'frame-mid.png'
+      else if @template.pic_which_frame==3
+        frame_file = 'frame-small.png'
+      else 
+        logger.error ("====  ERROR: no frame is selected. use default")
+      end
+      
       output_path = 'public/system/outputs'
       #bg_image_path = images_path + "/background/big/"+ background_pic
 
