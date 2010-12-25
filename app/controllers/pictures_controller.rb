@@ -90,7 +90,7 @@ class PicturesController < ApplicationController
         frame_img = Magick::Image.read(frame_path+frame_file).first    # picture frame
         frame_img.composite!(src_img, 10, 10, Magick::OverCompositeOp)
         frame_img.background_color = "none" # important. otherwise the background is white after rotate
-        frame_img.rotate!(-5)  # TODO: change to template.pic_angle later. (-5, +5)
+        frame_img.rotate!(@template.pic_angle)  # TODO: change to template.pic_angle later. (-5, +5)
         frame_img.trim!
         img.composite!(frame_img, @template.pic_x, @template.pic_y, Magick::OverCompositeOp)        
         
