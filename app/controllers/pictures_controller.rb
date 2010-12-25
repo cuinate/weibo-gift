@@ -72,6 +72,7 @@ class PicturesController < ApplicationController
 
       #--- path and name. to be config/updated in new environments
       font_path = 'public/fonts/'
+<<<<<<< HEAD
       frame_path = 'public/images/frame/'
       frame_file = 'frame.png'
       if @template.pic_which_frame==1 
@@ -84,10 +85,11 @@ class PicturesController < ApplicationController
         logger.error ("====  ERROR: no frame is selected. use default")
       end
       
+=======
+      frame_url = 'public/images/frame/' + @template.frame_file_name
+      logger.info("==== frame_url : #{frame_url}")
+>>>>>>> 3992e539017fa7ed597ed964865d38c5ca5ceed7
       output_path = 'public/system/outputs'
-      #bg_image_path = images_path + "/background/big/"+ background_pic
-
-      
       
       # do the same thing for each available fonts
       Find.find(font_path) do |f|
@@ -97,7 +99,7 @@ class PicturesController < ApplicationController
         #src_img = Magick::Image.read("public/" + user_pic_url).first  # to be replaced with user's picture url
         #src_img.crop_resized!(320,320)  # 照片的目标尺寸
         #src_img.border!(10, 10, "#f0f0ff")    #相框的颜色，宽度
-        frame_img = Magick::Image.read(frame_path+frame_file).first    # picture frame
+        frame_img = Magick::Image.read(frame_url).first    # picture frame
         frame_img.composite!(src_img, 10, 10, Magick::OverCompositeOp)
         frame_img.background_color = "none" # important. otherwise the background is white after rotate
         frame_img.rotate!(@template.pic_angle)  # TODO: change to template.pic_angle later. (-5, +5)
@@ -136,7 +138,6 @@ class PicturesController < ApplicationController
       logger.info(@picture.photo)
       
       # --- save the picture
-      
       if @picture.save
           aFile.close
            respond_to do |format|
