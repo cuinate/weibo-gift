@@ -550,10 +550,13 @@ height:620;
 float:left;
 }
 #pic_show_arrow_right{
-float:left;
+float:right;
 width:100px;
 height:440px;
 //border:1px dotted red;
+}
+.pic_arrow_navi{
+margin-top:150px;
 }
 /* making card --- card content*/
 #card_content{}

@@ -45,7 +45,7 @@ var Vboli = {
 				//
 				var friend_added =	$('<div/>',{
 					'class':'firend_selected_div',
-					'id'   : friend_id
+					'id'   : friend_name
 				})
 				.append(friend_name)
 				.append($('<a/>',{
@@ -102,6 +102,21 @@ var Vboli = {
 						input_text 		  : input_text
 					});
 			});
+			
+			$("#send_card").click(function(){
+				var card_pic_id = $("#card_pic_id").attr("card_pic_id");
+				var friends_id = new Array(); 
+				$("#friends_added").find('.firend_selected_div').each(function(){
+					var friend_id = $(this).attr('id');
+					friends_id.push(friend_id);
+				});
+				$.get(
+					"/send_card.json",
+					{
+						card_pic_id	 	  : card_pic_id,
+						friends_id 		  : friends_id
+					});
+			})
 	},
 	
 	flashDialog: function(status, title, body) {

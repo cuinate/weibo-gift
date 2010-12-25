@@ -141,6 +141,15 @@ protected
         raise err
         return
 	end
+	
+	def upload_card(status, file)
+	  update_agent()
+	  self.weibo_agent.upload(status,file)
+	   rescue => err
+       	  RAILS_DEFAULT_LOGGER.error "exception in getting user's friends #{err}"
+          raise err
+     return
+	end
 
 	
 

@@ -84,10 +84,12 @@ class UsersController < ApplicationController
 #    self.weibo_agent = Weibo::Base.new(oauth)
  
      @user_friends = get_user_friends()
-    
-#    @card_pic = Picture.find_by_id(params[:card_pic_id])
-#    @card_pic_demo_url = @card_pic.photo.url(:card400)
-    
+    @card_pic_id = params[:card_pic_id]
+    @card_pic = Picture.find_by_id(params[:card_pic_id])
+    @card_pic_demo_url = @card_pic.photo.url(:card400)
+    logger.info(@card_pic_demo_url)
+     splitted_url = @card_pic_demo_url.split("?")		 
+		 @user_card_url = splitted_url[0]  # the url of photo user just uploaded
     respond_to do |format|
 	   format.html # create_card_input.html.erb
 	   format.js
@@ -95,6 +97,28 @@ class UsersController < ApplicationController
   
   end
 #--------- protected methods -------------#
+ def send_card
+   @friends_id = params[:friends_id]
+   card_id = params[:card_pic_id]
+   logger.info("--- friends_id : ---#{@friends_id}")
+   @card_pic = Picture.find_by_id(params[:card_pic_id])
+   @card_pic_demo_url = @card_pic.photo.url(:card400)
+   logger.info(@card_pic_demo_url)
+   splitted_url = @card_pic_demo_url.split("?")		 
+	 @user_card_url = splitted_url[0]  # the url of photo user just uploaded
+	 @user_card_url = "public" + @user_card_url
+	 status ="祝你生日快乐！"+"@"+@friends_id[0]
+	 logger.info("---微波 -- status #{status}")
+	 aFile = File.new(@user_card_url)
+	 upload_card(status,aFile)
+	 #--- send card via weibo gem 
+	 respond_to do |format|
+	   format.html # create_card_input.html.erb
+	   format.js
+	   format.json
+   end
+   
+ end
 protected
 
 
