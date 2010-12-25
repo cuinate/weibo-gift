@@ -72,23 +72,8 @@ class PicturesController < ApplicationController
 
       #--- path and name. to be config/updated in new environments
       font_path = 'public/fonts/'
-<<<<<<< HEAD
-      frame_path = 'public/images/frame/'
-      frame_file = 'frame.png'
-      if @template.pic_which_frame==1 
-        frame_file = 'frame-big.png'
-      elsif @template.pic_which_frame==2
-        frame_file = 'frame-mid.png'
-      elsif @template.pic_which_frame==3
-        frame_file = 'frame-small.png'
-      else 
-        logger.error ("====  ERROR: no frame is selected. use default")
-      end
-      
-=======
       frame_url = 'public/images/frame/' + @template.frame_file_name
       logger.info("==== frame_url : #{frame_url}")
->>>>>>> 3992e539017fa7ed597ed964865d38c5ca5ceed7
       output_path = 'public/system/outputs'
       
       # do the same thing for each available fonts
