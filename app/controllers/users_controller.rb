@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 	  session[:temp_id] = params[:temp_id]
 	  @card_back_div_style = "background:url(" + @template.back.url + ")"
 	  
-	  #--- selection picture div coordination
+	  #--- selection picture div coordination ----- testing
 	  pic_x = @template.pic_x.to_s
 	  pic_y = @template.pic_y.to_s
 	  pic_width = @template.pic_width.to_s
