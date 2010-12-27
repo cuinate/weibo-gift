@@ -3,6 +3,7 @@
 var Vboli = {
 	background_url: "url(../images/background/big/back4.png) ",
 	background_pic: "back1.png",
+	friends_all   :  new Array(),
 	initializer: function(){
 	
 			/* ------- creating card steps   -----------------*/
@@ -109,6 +110,17 @@ var Vboli = {
 			$("#send_card").click(function(){
 				var card_pic_id = $("#card_pic_id").attr("card_pic_id");
 				var friends_id = new Array(); 
+				//----- testing code for find -------
+				var finder="natecui"
+				var num_friends = jQuery('#friends_all div.one_friend').length;
+				 for(var i=0;i<num_friends;i++){
+			            var friend_name = $("#friends_all div.one_friend:eq("+i+")").find('span').text();
+						if (friend_name == finder)
+						{alert("finded!"+friend_name);}
+						
+			        }
+				// ----------------------------------
+				/*
 				$("#friends_added").find('.firend_selected_div').each(function(){
 					var friend_id = $(this).attr('id');
 					friends_id.push(friend_id);
@@ -119,6 +131,7 @@ var Vboli = {
 						card_pic_id	 	  : card_pic_id,
 						friends_id 		  : friends_id
 					});
+					*/
 			})
 	},
 	
