@@ -1,0 +1,85 @@
+<%= form_for(@template, :html => { :multipart => true }) do |f| %>
+  <% if @template.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@template.errors.count, "error") %> prohibited this template from being saved:</h2>
+
+      <ul>
+      <% @template.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ 
+	<div class="field">
+	    <%= f.label :name %><br />
+	    <%= f.text_field :name %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :description %><br />
+	    <%= f.text_field :description %>
+	  </div>
+	  
+	 <div class="field">
+	    <%= f.label :input_x %><br />
+	    <%= f.text_field :input_x %>
+	  </div>
+	  
+	  <div class="field">
+	    <%= f.label :input_y %><br />
+	    <%= f.text_field :input_y %>
+	  </div>
+	  
+	  <div class="field">
+	    <%= f.label :input_width %><br />
+	    <%= f.text_field :input_width %>
+	  </div>
+	
+	  <div class="field">
+	    <%= f.label :input_height %><br />
+	    <%= f.text_field :input_height %>
+	  </div>
+	  
+	 <div class="field">
+	    <%= f.label :pic_x %><br />
+	    <%= f.text_field :pic_x %>
+	  </div>
+	
+	  <div class="field">
+	    <%= f.label :pic_y %><br />
+	    <%= f.text_field :pic_y %>
+	  </div>
+	
+	  <div class="field">
+	    <%= f.label :pic_width %><br />
+	    <%= f.text_field :pic_width %>
+	  </div>
+	
+	  <div class="field">
+	    <%= f.label :pic_height %><br />
+	    <%= f.text_field :pic_height %>
+	  </div>
+	  
+	  <div class="field">
+      <%= f.label :pic_angle %><br />
+      <%= f.text_field :pic_angle %>
+    </div>
+    
+	  <div class="field">
+	    <%= f.label :选择模图片文件 %><br />
+	   <%= f.file_field :pic %>
+	   </div>
+	 <div class="field">
+	    <%= f.label :选择模版背景 %><br />
+	   <%= f.file_field :back %>
+	   </div>
+	
+	 <div class="field">
+	    <%= f.label :选择frame文件 %><br />
+	   <%= f.file_field :frame %>
+	   </div>
+	  <div class="actions">
+	    <%= f.submit %>
+	  </div>
+<% end %>
