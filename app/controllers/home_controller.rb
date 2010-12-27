@@ -7,7 +7,7 @@ class HomeController < ApplicationController
       logger.info("no user in now")
     end
     respond_to do |format|
-      format.html # show.html.erb #testing
+      format.html # show.html.erb 
       #format.mobi { render :layout => false }
     end
   end
