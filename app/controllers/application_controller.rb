@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
       
       #-1.-- get or update all current users friends back from weibo
       friends = self.friends()
-      #-2.--- get/update the wanted information saved
+      #-2.-get/update the wanted information saved
       user_friends = Array.new
       friends.each do |f| 
         user_id = current_user.id
