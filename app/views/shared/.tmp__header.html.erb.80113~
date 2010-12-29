@@ -1,4 +1,3 @@
-<%if session[:weibo_id]%>
 <div id="header">
 	<div class="wrapper">
 		<div class="top-nav">
@@ -49,7 +48,7 @@
 				</ul>
 			</div>
 			<div class="login">
-				
+				<%if session[:weibo_id]%>
 				<% @user = User.find_by_weibo_id(session[:weibo_id])%>
 				<div id="user_profile_img_div">
 					<%= image_tag @user.profile_image_url, :class => 'profile_image_url'%>
@@ -61,24 +60,15 @@
 					<%= link_to "signout", signout_url,:class =>'login_signout'%>
 				</div>
 				</div>
-				
-			
+				<%else%>
+				<a href="/login"> <%= image_tag "weibo_connect.png"%> </a>
+				<%end%>
 			</div>
 		</div>
 	</div>
 </div><!--header end -->
-<%else%>
-<div id="header_no_login" class="header_no_login">
-<div class="wrapper">
-	<div class="top-nav">
-		<div class="login">
-			<a href="/login"> <%= image_tag "login.png", :class => 'log-in-button'%> </a>
-						
-		</div>
-	</div>
-</div>
-</div>
-<%end%>
+
+
 <script>
 $(document).ready(function(){
 	Vboli.initializer();
