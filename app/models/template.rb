@@ -2,8 +2,8 @@ class Template < ActiveRecord::Base
   has_attached_file :pic, 
                     :default_style => :thumb,
                     :styles => {
-                      :thumb  => "200x150#",
-                      :thumb_b => "400x300#"
+                      :thumb  => "150x125#",
+                      :thumb_b => "600x500#"
                     },
                     :url => "/system/template/:id/:style/:filename"
   has_attached_file :back, 
