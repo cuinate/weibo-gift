@@ -72,7 +72,8 @@ class PicturesController < ApplicationController
 
       #--- path and name. to be config/updated in new environments
       font_path = 'public/fonts/'
-      frame_url = 'public/images/frame/' + @template.frame_file_name
+      #frame_url = 'public/images/frame/' + @template.frame_file_name
+      frame_url = 'public' + @template.frame.url
       logger.info("==== frame_url : #{frame_url}")
       output_path = 'public/system/outputs'
       

@@ -472,11 +472,11 @@ padding-left:140px;
 /*=== card creating        ===*/
 /*============================*/
 #temp_back_div{
-background: url(../images/background/temp_bg_b.png);
+background: url(../images/background/temp_frame.png) no-repeat;
 //border : 1px solid #e9e9e9;
-margin: 2px auto 10px 5px;
-width: 820px;
-height: 620px;
+margin: 2px auto 0px 0px;
+width: 680px;
+height: 580px;
 float:left;
 //-webkit-box-shadow: #333 0px 0px 5px;
 //-moz-box-shadow:    #333 0px 0px 5px;
@@ -484,11 +484,11 @@ float:left;
 
 #card_back_div{
 position:absolute;
-//border:1px solid red;
-margin-top :8px;
-margin-left:8px;
-width:800px;
-height:600px;
+border:1px solid #e9e9e9;
+margin-top :38px;
+margin-left:38px;
+width:600px;
+height:500px;
 }
 #card_pic_sel_div{
 position:absolute;
