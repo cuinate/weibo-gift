@@ -32,7 +32,7 @@ class SessionsController < ApplicationController
 		end
 		# Redirect to the show page
 	  
-		redirect_to user_path(@user)
+		redirect_to show_bcard_path
 
   	rescue
   		# The user might have rejected this application. Or there was some other error during the request.

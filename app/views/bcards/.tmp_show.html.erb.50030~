@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @bcard.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @bcard.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_bcard_path(@bcard) %> |
+<%= link_to 'Back', bcards_path %>

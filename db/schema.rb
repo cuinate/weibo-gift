@@ -10,7 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101224050803) do
+ActiveRecord::Schema.define(:version => 20110103141109) do
+
+  create_table "bcards", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "pic_file_name"
+    t.string   "pic_content_type"
+    t.integer  "pic_file_size"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "friends", :force => true do |t|
     t.integer  "weibo_id",          :null => false

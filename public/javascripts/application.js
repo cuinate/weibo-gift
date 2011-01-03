@@ -88,10 +88,13 @@ var Vboli = {
 			
 		    $(".temlate_sel").click(function(){
 				var template_id = $(this).attr("id");
+				var temp_which = $("#template_which").attr("which");
 				$.get(
 					"/createcard.js",
 					{
-					  temp_id:template_id
+					  temp_id:template_id,
+					  temp_which:temp_which
+					  
 					});
 			});
 			

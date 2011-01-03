@@ -2,6 +2,8 @@ WeiboGift::Application.routes.draw do
   
 
 
+  resources :bcards
+
   match 'root' => 'home#index', :as => :root
   match '/' => 'home#index', :as => :/
   match 'user'  => 'users#index', :as => :user  
@@ -15,6 +17,9 @@ WeiboGift::Application.routes.draw do
   match 'createcard' => 'users#create_card', :as => :createcard
   match 'create_card_input' => 'users#create_card_input', :as => :create_card_input
   match 'send_card' => 'users#send_card', :as => :sendcard
+  match 'show_post' => 'users#show_post', :as => :show_post
+  match 'show_bcard' => 'users#show_bcard', :as => :show_bcard
+  
 # friends
   match 'get_friends' => 'users#get_friends', :as => :get_friends  
 # picture 

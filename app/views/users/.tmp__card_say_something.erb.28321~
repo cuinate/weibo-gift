@@ -1,0 +1,26 @@
+<%= render :partial => "show" %>
+<div id="pic_show_arrow_left">
+	<%= image_tag "arrow_left.png", :class => 'pic_arrow_navi'%>
+</div>
+<div id="temp_back_div">
+
+	<div id="card_back_div" class="card_back_div" style="<%=@card_back_div_style%>">
+
+		<div id="card_pic_sel_div" class="card_pic_sel_div" style="<%=@card_pic_sel_div_style%>">
+			<div id= "card_pic_div" class = "card_pic_div" style="<%=@card_pic_div_style%>">
+				<input id="picture_photo" type ="file" name="filedata" style="display:none; margin-top:40px;">
+			</div>
+		</div>
+		
+
+    </div>
+	<div id="card_input_div" class="card_input_div" >		
+			<textarea id="card_input_text" class="card_input_text" ></textarea>
+	</div>
+</div>
+<div id="pic_show_arrow_right">	
+	<a id="submit_card" href="javascript:void(0)"><%= image_tag "arrow_right.png", :class => 'pic_arrow_navi'%>
+	</a>
+</div>
+
+

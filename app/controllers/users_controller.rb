@@ -13,40 +13,54 @@ class UsersController < ApplicationController
 	
 	# GET /members/1
 	# GET /members/1.xml
-	def show
-	  # get the template 
-	  @templates = Template.all
+	def show_bcard
+    # get the bcards pictures
+    @bcards = Bcard.all 
 		respond_to do |format|
 			format.html # show.html.erb
-			format.xml  { render :xml => @member }
 		end
-	end
+end
+
+   def show_post
+    # get the template 
+    @templates = Template.all
+    respond_to do |format|
+      format.html # show.html.erb
+    end
+  end
 	
 	def create_card
-	  @template = Template.find_by_id(params[:temp_id])
-	  session[:temp_id] = params[:temp_id]
-	  @card_back_div_style = "background:url(" + @template.back.url + ")"
-	  
-	  #--- selection picture div coordination ----- testing
-	  pic_x = @template.pic_x.to_s
-	  pic_y = @template.pic_y.to_s
-	  pic_width = @template.pic_width.to_s
-	  pic_height = @template.pic_height.to_s
-	  @card_pic_sel_div_style = "top:" + pic_y + "px;left:" + pic_x + "px;width:" + pic_width + "px;height:" + pic_height + "px;"
-	  
-	  @card_pic_div_style = "width:" + pic_width + "px;height:" + pic_height + "px;"
-	  #---- text input box div coordination
-    input_x = @template.input_x.to_s
-	  input_y = @template.input_y.to_s
-	  input_width = (@template.input_width + 10).to_s
-	  input_height = (@template.input_height + 10).to_s
-	  @card_input_div_style = "top:" + input_y + "px;left:" + input_x + "px;width:" + input_width + "px;height:" + input_height + "px;"
-	  
-	  #---- text input area coordination style
-	  text_width = @template.input_width.to_s
-	  text_height = @template.input_height.to_s
-	  @card_input_text_style = "width:" + text_width + "px;height:" + text_height +"px;"
-	  logger.info(@card_back_div_style)
+    @which_card = params[:temp_which] 
+    session[:temp_id] = params[:temp_id]
+    
+    if(@which_card == "post")#post-card 
+  	  @template = Template.find_by_id(params[:temp_id]) 
+  	  @card_back_div_style = "background:url(" + @template.back.url + ")"
+  	  
+  	  #--- selection picture div coordination ----- testing
+  	  pic_x = @template.pic_x.to_s
+  	  pic_y = @template.pic_y.to_s
+  	  pic_width = @template.pic_width.to_s
+  	  pic_height = @template.pic_height.to_s
+  	  @card_pic_sel_div_style = "top:" + pic_y + "px;left:" + pic_x + "px;width:" + pic_width + "px;height:" + pic_height + "px;"
+  	  
+  	  @card_pic_div_style = "width:" + pic_width + "px;height:" + pic_height + "px;"
+  	  #---- text input box div coordination
+      input_x = @template.input_x.to_s
+  	  input_y = @template.input_y.to_s
+  	  input_width = (@template.input_width + 10).to_s
+  	  input_height = (@template.input_height + 10).to_s
+  	  @card_input_div_style = "top:" + input_y + "px;left:" + input_x + "px;width:" + input_width + "px;height:" + input_height + "px;"
+  	  
+  	  #---- text input area coordination style
+  	  text_width = @template.input_width.to_s
+  	  text_height = @template.input_height.to_s
+  	  @card_input_text_style = "width:" + text_width + "px;height:" + text_height +"px;"
+  	  logger.info(@card_back_div_style)
+    else # "bolilai" card
+      @bcard = Bcard.find_by_id(params[:temp_id])    
+      @card_back_div_style = "background:url(" + @bcard.pic.url(:thumb_b) + ")"
+    end
 	  respond_to do |format|
       format.js
     end

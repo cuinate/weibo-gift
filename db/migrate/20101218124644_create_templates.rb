@@ -13,11 +13,11 @@ class CreateTemplates < ActiveRecord::Migration
       t.integer    :pic_width
       t.integer    :pic_height
       t.integer    :pic_angle
-      
+      # post-card:完成的效果图示
       t.string     :pic_file_name
       t.string     :pic_content_type
       t.integer    :pic_file_size
-
+      # 对于‘宝丽来’的card来说，这个back是白框，对于post-card来说，这个是明信片的背景图
       t.string     :back_file_name
       t.string     :back_content_type
       t.integer    :back_file_size

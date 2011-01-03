@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+<div id="template_show_details" class="tempaltes_show">
+
+	<h1 style="font-size:20px;color:#999;">Listing templates</h1>
+	<table style="margin-top:10px; border:1px solid #333;" cellpadding="4">
+	  <tr class="tempaltes_show_tr">
+	    <th>name</th>
+	    <th>description</th>
+	    <th>template thumb</th>
+
+	  </tr>
+
+	
+	  <tr class="tempaltes_show_tr">
+
+	    <td><%= @template.name %></td>
+	    <td><%= @template.description %></td>
+	    <td><%= image_tag @template.pic(:thumb) %></td>
+	  </tr>
+	
+	</table>
+
+
+<%= link_to 'Edit', edit_template_path(@template) %> |
+<%= link_to 'Back', templates_path %>
+
+</div>

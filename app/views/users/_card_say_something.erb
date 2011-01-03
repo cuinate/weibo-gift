@@ -1,7 +1,6 @@
 <%= render :partial => "show" %>
-<div id="pic_show_arrow_left">
-	<%= image_tag "arrow_left.png", :class => 'pic_arrow_navi'%>
-</div>
+
+<% if @which_card == "post"%>
 <div id="temp_back_div">
 
 	<div id="card_back_div" class="card_back_div" style="<%=@card_back_div_style%>">
@@ -11,15 +10,31 @@
 				<input id="picture_photo" type ="file" name="filedata" style="display:none; margin-top:40px;">
 			</div>
 		</div>
-		<div id="card_input_div" class="card_input_div" style ="<%=@card_input_div_style%>">		
-			<textarea id="card_input_text" class="card_input_text" style ="<%=@card_input_text_style%>"></textarea>
-		</div>
+		
 
     </div>
+	<div id="card_input_div" class="card_input_div" >		
+			<textarea id="card_input_text" class="card_input_text" ></textarea>
+			<a id="submit_card" href="javascript:void(0)" class="submit_card">搞定了！</a>
+	</div>
 </div>
-<div id="pic_show_arrow_right">	
-	<a id="submit_card" href="javascript:void(0)"><%= image_tag "arrow_right.png", :class => 'pic_arrow_navi'%>
+<% else%>
+<div id="temp_back_div">
+
+	<div id="card_back_div" class="card_back_div" style="<%=@card_back_div_style%>">
+
+	
+    </div>
+	
+	<div id="card_input_div" class="card_input_div" >		
+			<textarea id="card_input_text" class="card_input_text" ></textarea>
+			<a id="submit_card" href="javascript:void(0)" class="submit_card">搞定了！
 	</a>
+	</div>
+	
 </div>
+ 
+<%end%>
+
 
 

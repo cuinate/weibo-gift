@@ -1,0 +1,4 @@
+<div id="content_part">
+<%= render :partial => "card_paper" %>
+</div>
+

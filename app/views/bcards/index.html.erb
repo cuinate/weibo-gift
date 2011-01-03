@@ -1,0 +1,30 @@
+<div id="tempaltes_show" class="tempaltes_show">
+<h1 style="font-size:20px;color:#999;">Listing templates</h1>
+<table style="margin-top:10px; border:1px solid #333;" cellpadding="4">
+  <tr class="tempaltes_show_tr">
+    <th>name</th>
+    <th>description</th>
+    <th>bcard thumb</th>
+	<th>显示</th>
+	<th>编辑</th>
+	<th>干掉它！</th>
+  </tr>
+
+<% @bcards.each do |bcard| %>
+  <tr class="tempaltes_show_tr">
+
+    <td><%= bcard.name %></td>
+    <td><%= bcard.description %></td>
+    <td><%= image_tag bcard.pic(:thumb) %></td>
+    <td><%= link_to 'Show', bcard %></td>
+    <td><%= link_to 'Edit', edit_bcard_path(bcard) %></td>
+    <td><%= link_to 'Destroy', bcard, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New bcard', new_bcard_path %>
+</div>
+
