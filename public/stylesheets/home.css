@@ -340,11 +340,8 @@ margin: 0px;
 padding: 0px;
 }
 ul.friends_thumb li {
-border:1px solid #b7b49f;
-//border: 5px solid white;
-//-webkit-box-shadow: #333 0px 0px 5px;
-//-moz-box-shadow:    #333 0px 0px 5px;
-background-color :white;
+background-color: #f4f4f4;
+border:1px solid #cfd7dc;
 display: block;
 float: left;
 height: 100px;
@@ -354,7 +351,6 @@ margin-bottom: 12px;
 overflow: hidden;
 }
 ul.friends_thumb li .friend_div{
-background-color :white;
 width:70px;
 height:90px;
 }
@@ -380,9 +376,7 @@ display:block;
 float:right;
 }
 ul.friends_thumb li .friend_name{
-border-top:1px solid #999;
-background-color:#deeff6;
-color: #333;
+color: #73888d;
 width:80px;
 height:40px;
 margin: 10px auto 10px auto;

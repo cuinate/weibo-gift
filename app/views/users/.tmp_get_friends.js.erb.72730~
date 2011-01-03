@@ -1,0 +1,2 @@
+$('#content_part').empty();
+$('#content_part').append("<%= escape_javascript(render :partial =>"get_friends")%>");

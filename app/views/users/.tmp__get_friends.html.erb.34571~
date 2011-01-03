@@ -41,7 +41,10 @@
 	});
 </script>
 
-
+<div id="pic_show_arrow_left">
+	<%= image_tag "arrow_left.png", :class => 'pic_arrow_navi'%>
+</div>  
+    
 	<div id = "friends_wrapper">
 		<input type="hidden" name="arrcity_3word" id="arrcity_3word" value="" />
 		<label for="arrcity">输入好友名字</label><input type="text" name="arrcity" id="arrcity" />
@@ -64,7 +67,9 @@
 	<div id= "card_pic_demo">
 
 	</div>
-
+<div id="pic_show_arrow_right">	
+<%= image_tag "arrow_right.png", :class => 'pic_arrow_navi'%>
+</div>
 	<!--- hidden page result -->
 		<div id="friends_all" style="display:none;">
 	
@@ -78,7 +83,7 @@
 					
 				</div>
 				<div class= "friend_name">
-				<span style="font-size:12px; color:#73888d;display:block;overflow:hidden;"><%= p["screen_name"] %></span>
+				<span style="font-size:12px; color:#333;display:block;overflow:hidden;"><%= p["screen_name"] %></span>
 				</div>
 				</li>
 			</div>

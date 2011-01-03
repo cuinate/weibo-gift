@@ -1,6 +1,7 @@
 <%= render :partial => "show" %>
 
 <% if @which_card == "post"%>
+<div id="template_which" which="post"></div>
 <div id="temp_back_div">
 
 	<div id="card_back_div" class="card_back_div" style="<%=@card_back_div_style%>">
@@ -19,6 +20,7 @@
 	</div>
 </div>
 <% else%>
+<div id="template_which" which="bcard"></div>
 <div id="temp_back_div">
 
 	<div id="card_back_div" class="card_back_div" style="<%=@card_back_div_style%>">

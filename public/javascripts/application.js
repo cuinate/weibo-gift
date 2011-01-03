@@ -102,11 +102,13 @@ var Vboli = {
 				var card_pic_id = $("#card_photo_id").attr("card_photo_id");
 				var input_text  = $("#card_input_text").val();
 				var card_photo_url = $("#card_photo_url").attr("card_photo_url");
+				var temp_which = $("#template_which").attr("which");
 				$.get(
 					"/card_compose.js",
 					{
 						card_photo_url	  : card_photo_url,
-						input_text 		  : input_text
+						input_text 		  : input_text,
+						temp_which		  :temp_which
 					});
 			});
 			
