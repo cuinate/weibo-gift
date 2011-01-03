@@ -7,8 +7,8 @@
 					<li>
 						<div class ="card_steps">
 							<div class = "card_steps_navi">
-								
-								<span class = "step_descp"> 选择模板</span>
+								<%= image_tag "background/template.png"%>
+								<span class = "step_descp"> 选择模版</span>
 							</div>
 							<div class = "card_steps_which active">
 							</div>
@@ -17,7 +17,7 @@
 					<li>
 						<div class ="card_steps">
 							<div class = "card_steps_navi">
-							
+								<%= image_tag "background/card_create.png"%>
 								<span class = "step_descp"> 制作贺卡</span>
 							</div>
 							<div class = "card_steps_which unactive">
@@ -27,7 +27,7 @@
 					<li>
 						<div class ="card_steps">
 							<div class = "card_steps_navi">
-							
+								<%= image_tag "background/preview.png"%>
 								<span class = "step_descp"> 效果预览</span>
 							</div>
 							<div class = "card_steps_which unactive">
@@ -38,7 +38,7 @@
 						<a href="javascript:void(0)" id="get_friends_send">
 						<div  class ="card_steps">
 							<div class = "card_steps_navi">
-							
+								<%= image_tag "background/send2.png"%>
 								<span class = "step_descp"> 发送好友</span>
 							</div>
 							<div class = "card_steps_which unactive">
@@ -56,7 +56,8 @@
 				<div id="user_profile_manage">
 			     <%=@user.screen_name %> 
 			     <div id="user_profile_signup">
-					<%= link_to "退出", signout_url,:class =>'login_signout'%>
+					<%= link_to "signout", signout_url,:class =>'login_signout'%>
+					<%= link_to "signout", signout_url,:class =>'login_signout'%>
 				</div>
 				</div>
 				
