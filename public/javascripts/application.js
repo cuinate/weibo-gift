@@ -30,6 +30,7 @@ var Vboli = {
 					});
 			}
 			
+			
 			$("#get_friends_send").click(function(){
 				var card_pic_id = $("#card_pic_id").attr("card_pic_id");
 				$.get(
@@ -48,11 +49,12 @@ var Vboli = {
 				})
 				.append(friend_name)
 				.append($('<img/>', {
-				  'style': 'margin-left:3px; margin-top:2px;cursor:pointer;',
+				  'style': 'margin-left:3px; margin-top:2px;cursor:pointer;display:block;float:right;',
 				  'class' : 'remove_selected_friends',
-		           'src' : '/images/del.png',
+		           'src' : '/images/cancel.png',
 		           click: function() {
-		             	var id = $(this).attr("div_id");
+		             	//Vboli.remove_friends_div();
+						var id = $(this).attr("div_id");
 						var div_id = "#" + id;
 						$(div_id).remove();
 		           },
@@ -65,8 +67,11 @@ var Vboli = {
 					 'id'   :   friend_name
 				}))
 				*/
-				$("#friend_selected_show_div").show();
+				
+				$("#tweet_content_div").show();
+				$("#friends_content_div").show();
 				$("#friends_added").append(friend_added);
+				
 				
 			});
 			
@@ -89,6 +94,9 @@ var Vboli = {
 		    $(".temlate_sel").click(function(){
 				var template_id = $(this).attr("id");
 				var temp_which = $("#template_which").attr("which");
+				
+				$("#navi_template").attr('class','card_steps_which unactive');
+				$("#navi_card").attr('class','card_steps_which active');
 				$.get(
 					"/createcard.js",
 					{
@@ -103,13 +111,26 @@ var Vboli = {
 				var input_text  = $("#card_input_text").val();
 				var card_photo_url = $("#card_photo_url").attr("card_photo_url");
 				var temp_which = $("#template_which").attr("which");
+
+				$("#navi_card").attr('class','card_steps_which unactive');
+				$("#navi_friends").attr('class','card_steps_which active');
 				$.get(
-					"/card_compose.js",
+					"/card_compose.json",
 					{
 						card_photo_url	  : card_photo_url,
 						input_text 		  : input_text,
 						temp_which		  :temp_which
-					});
+					},
+					function(data){
+						alert("picture_id--- " + data);
+						$.get(
+							"/get_friends.js",
+							{
+								card_pic_id :data
+							}
+						);
+					}
+					);
 			});
 			
 			$("#send_card").click(function(){
@@ -143,7 +164,12 @@ var Vboli = {
 	flashDialog: function(status, title, body) {
 		  		if (status === 'fail') status = 'error';
 				  Lbsc2.Flash.add(status, body);
-		}
+		},
+   remove_friends_div: function ()
+			{
+				
+				
+			}
 	
 }
 

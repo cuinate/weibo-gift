@@ -74,9 +74,9 @@
 	 	<span>你的好友通过@微薄礼（vboli）给你送了一张卡片</span>
 	 </div>
 	 <div id="tweet_pic_div">
-	 	
-	    <%= image_tag  @card_pic_demo_url,:title => 'vob card',
-     								      :class => 'tweet_pic_thumb'%>
+	 	<%bcard=Bcard.find_by_id(1)%>
+	    <%= image_tag  bcard.pic(:thumb),:title => bcard.description,
+     								     :class => 'tweet_pic_thumb'%>
 	 </div>
 
 	</div>

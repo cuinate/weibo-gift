@@ -30,14 +30,14 @@
 				if($.trim($(this).val())=='输入好友名字'){
 					$(this).val('').css('color','#000');
 				}
-				if($.trim($(this).val())==''){
+				/*if($.trim($(this).val())==''){
 					displayItems('');//显示热门城市列表
-				}
+				}*/
 			});
 			$input.click(function(){
-				var q=$.trim($(this).val());
+				/*var q=$.trim($(this).val());
 				displayItems(q);
-				$(this).select();
+				$(this).select();*/
 			});
 						
 			// help IE users if possible
@@ -110,20 +110,8 @@
 			}		
 			function displayItems(items) {
 				var html = '';
-				/*if (items=='') {//热门城市遍历
-					for(h in options.hot_list){
-						html+='<li rel="'+options.hot_list[h][0]+'"><a href="#'+h+'"><span>'+options.hot_list[h][2]+'</span>'+options.hot_list[h][1]+'</a></li>';
-					}
-					html='<div class="gray ac_result_tip">请输入中文/拼音或者↑↓选择</div><ul>'+html+'</ul>';
-				}
-				else {
-					/*if (!items)
-					return;
-					if (!items.length) {
-						$results.hide();
-						return;
-					}*/
-				for (var i = 0; i < options.source.length; i++) {//国内城市匹配
+
+				for (var i = 0; i < options.source.length; i++) {
 					var reg = new RegExp('^' + items + '.*$', 'im');
 					if (reg.test(options.source[i])){
 						html += '<li rel="' + options.source[i] + '"><a href="#' + i + '"><span>' + options.source[i]+ '</span>' + '</a></li>';
@@ -172,8 +160,32 @@
 				$currentResult = getCurrentResult();
 			
 				if ($currentResult) {
-					$input.val($currentResult.children('a').html().replace(/<span>.+?<\/span>/i,''));
+					//$input.val($currentResult.children('a').html().replace(/<span>.+?<\/span>/i,''));
 					$results.hide();
+					
+					var friend_name = $currentResult.children('a').children('span').text();
+					var friend_added =	$('<div/>',{
+						'class':'firend_selected_div',
+						'id'   : friend_name
+					})
+					.append(friend_name)
+					.append($('<img/>', {
+					  'style': 'margin-left:3px; margin-top:2px;cursor:pointer;',
+					  'class' : 'remove_selected_friends',
+			           'src' : '/images/cancel.png',
+			           click: function() {
+			           // Vboli.remove_friends_div();
+					   	var id = $(this).attr("div_id");
+						var div_id = "#" + id;
+						$(div_id).remove();
+			           },
+					   'div_id'   : friend_name
+			         }));
+		
+				$("#tweet_content_div").show();
+				$("#friends_content_div").show();
+				$("#friends_added").append(friend_added);
+				
 
 					if( $(options.dataContainer) ) {
 						$(options.dataContainer).val($currentResult.attr('rel'));

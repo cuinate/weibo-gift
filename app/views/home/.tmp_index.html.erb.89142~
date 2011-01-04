@@ -2,7 +2,7 @@
 	
 <div id="intro">
     <div class="wrapper">
-	 <%= image_tag "intro2.png"%> 
+	 <%= image_tag "intro.png"%> 
     </div>
     <div class="bg mod"></div>
 </div>
