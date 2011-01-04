@@ -34,60 +34,62 @@ class PicturesController < ApplicationController
      
      @out_file_path = ''
      @user = current_user
-     
+     @final_img =''
+     @d_str=''
      @picture = Picture.new
      card_photo_url	    = params[:card_photo_url]
 		 input_text         = params[:input_text]
 		 template_id        = session[:temp_id] # get the template ID from session
      temp_which         = params[:temp_which]
 
-     if (temp_which == "post") # post_card 
+    
   		 #@user_pic = Picture.find_by_id(card_pic_id)
   		 #user_pic_url_origin= @user_pic.photo.url(:card)
   		 #splitted_url = user_pic_url_origin.split("?")
   		 splitted_url = card_photo_url.split("?")		 
-  		 user_pic_url = splitted_url[0]  # the url of photo user just uploaded
-  		 logger.info("~~~~~~~~ the url of photo user: public+#{user_pic_url}")
-  
-       #. 1 get the other paramters from template
-       @template = Template.find_by_id(template_id)
-       temp_back_url = @template.back.url
-       logger.info("~~~~~~~~ template background url : #{temp_back_url}")
-       
+  		 @user_pic_url = splitted_url[0]  # the url of photo user just uploaded
+  		 logger.info("~~~~~~~~ the url of photo user: public+#{@user_pic_url}")
+
        font_size = 25
        #input_width = @template.input_width
        input_width = 560
        num_word_per_line = (input_width/font_size).round
        
-  		 # long text parser        
+       # long text parser        
        $KCODE='utf8'
-       d_str =''
+       @d_str =''
        input_text.each {|s_str| 
           while s_str.jsize > num_word_per_line
             tmp_str = s_str.scan(/./)[0,num_word_per_line].join
-            d_str += tmp_str + "\n"
+            @d_str += tmp_str + "\n"
             s_str = s_str[tmp_str.size,s_str.size-tmp_str.size]
             if s_str == nil then break end
             #puts s_str.jsize  
           end
-          if s_str!=nil then d_str += s_str end
-          d_str += "\n"
+          if s_str!=nil then @d_str += s_str end
+          @d_str += "\n"
         }
-  
-        #--- path and name. to be config/updated in new environments
+
+
+       #--- path and name. to be config/updated in new environments
         font_path = 'public/fonts/fz_shaoer.ttf'
-        frame_url = 'public' + @template.frame.url
-        logger.info("~~~~~~~~ frame_url : #{frame_url}")
         output_path = 'public/system/outputs'
         
+        
+       if (temp_which == "post") # post_card 
+       #. 1 get the other paramters from template
+       @template = Template.find_by_id(template_id)
+       temp_back_url = @template.back.url
+       logger.info("~~~~~~~~ template background url : #{temp_back_url}")
+       frame_url = 'public' + @template.frame.url
+       logger.info("~~~~~~~~ frame_url : #{frame_url}")
+       
         # removed - do the same thing for each available fonts
         #Find.find(font_path) do |f|
           #if /[tT][tT][fF]/.match(f)==nil then next end
           img = Magick::Image.read('public'+temp_back_url).first #bg_image_path).first    #图片路径
-          src_img = Magick::Image.read('public'+user_pic_url).first  
-          #src_img = Magick::Image.read("public/" + user_pic_url).first  # to be replaced with user's picture url
-          #src_img.crop_resized!(320,320)  # 照片的目标尺寸
-          #src_img.border!(10, 10, "#f0f0ff")    #相框的颜色，宽度
+          src_img = Magick::Image.read('public'+@user_pic_url).first  
+ 
           frame_img = Magick::Image.read(frame_url).first    # picture frame
           frame_img.composite!(src_img, 2, 2, Magick::OverCompositeOp)
           frame_img.background_color = "none" # important. otherwise the background is white after rotate
@@ -96,29 +98,37 @@ class PicturesController < ApplicationController
           img.composite!(frame_img, @template.pic_x, @template.pic_y, Magick::OverCompositeOp)        
           
           # add big white border
-          final_img = Magick::Image.new(640,640,Magick::HatchFill.new('white','white'))
-          final_img.composite!(img, 20, 20, Magick::OverCompositeOp)
-          
+          card_back_path = 'public/images/background/temp_frame.png'
+          @final_img = Magick::Image.read(card_back_path).first  
+          #final_img = Magick::Image.new(640,640,Magick::HatchFill.new('white','white'))
+          @final_img.composite!(img, 25, 25, Magick::OverCompositeOp)
+       else
+           @bcard_pic = Bcard.find_by_id(template_id) 
+           bcard_pic_url = @bcard_pic.pic.url(:thumb_b)
+           img = Magick::Image.read('public'+bcard_pic_url).first #bg_image_path).first 
+           
+          card_back_path = 'public/images/background/temp_frame.png'
+          @final_img = Magick::Image.read(card_back_path).first  
+          #final_img = Magick::Image.new(640,640,Magick::HatchFill.new('white','white'))
+          @final_img.composite!(img, 25, 25, Magick::OverCompositeOp)
+       end
           gc= Magick::Draw.new
           #gc.annotate(img, 0, 0, @template.input_x, @template.input_y, d_str) do  #可以设置文字的位置，参数分别为路径、宽度、高度、横坐标、纵坐标
-          gc.annotate(final_img, 0, 0, 40, 550, d_str) do  #可以设置文字的位置，参数分别为路径、宽度、高度、横坐标、纵坐标
+          gc.annotate(@final_img, 0, 0, 40, 550, @d_str) do  #可以设置文字的位置，参数分别为路径、宽度、高度、横坐标、纵坐标
             #self.gravity = Magick::CenterGravity
             self.font = font_path #f
             self.pointsize = font_size                 #字体的大小
             self.fill = '#000'                         #字体的颜色
             self.stroke = "none"
           end          
-          #font_file_name = File.basename(f, 'ttf')
-          #font_file_name = "fz_shaer"
-          #@out_file_path = output_path + "/"+ font_file_name + "png"
+
           @out_file_path = output_path + "/"+ "final_card.png"  
-          final_img.write(@out_file_path) 
+          @final_img.write(@out_file_path) 
           logger.info("----- outpu_file_path:____" + @out_file_path)        
         #end
       #------ "bolilai card creation #
-    else
 
-    end
+    
       # --- save the file to user.picture using paperclip
       aFile = File.new(@out_file_path)
       # ... process the file
