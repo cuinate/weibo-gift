@@ -21,8 +21,9 @@ $(document).ready(function() {
 <div id="content_part">
 <div id="template_navi">
 <div id="template_which" which="post"></div>
-<%= link_to '宝丽来', show_bcard_path %>
-<%= link_to '明信片', show_post_path , :class => 'template_sel_active'%>
+<%= link_to '明信片', show_bcard_path , :class => 'template_sel_off'%>
+<div id="space" style="height:15px;"></div>
+<%= link_to '照片卡', show_post_path , :class => 'template_sel_active'%>
 </div>
 <div id="temp_thumb_wrapper">
 	<ul class = "temp_thumb">
