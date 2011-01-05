@@ -163,6 +163,12 @@
 					//$input.val($currentResult.children('a').html().replace(/<span>.+?<\/span>/i,''));
 					$results.hide();
 					
+					var added_no = jQuery('#friends_added div').length;
+					if (added_no == 3 )
+					{
+						alert("抱歉！容量有限，我们现在只能加三个！谢谢");
+						return false;
+					}
 					var friend_name = $currentResult.children('a').children('span').text();
 					var friend_added =	$('<div/>',{
 						'class':'firend_selected_div',
@@ -174,16 +180,21 @@
 					  'class' : 'remove_selected_friends',
 			           'src' : '/images/cancel.png',
 			           click: function() {
-			           // Vboli.remove_friends_div();
-					   	var id = $(this).attr("div_id");
+			            var left_no = jQuery('#friends_added div').length;
+						var id = $(this).attr("div_id");
 						var div_id = "#" + id;
 						$(div_id).remove();
+						if (left_no == 1)
+						{
+							$("#friends_content_div").hide('slow');
+							$("#tweet_content_div").hide('slow');
+						}
 			           },
 					   'div_id'   : friend_name
 			         }));
 		
-				$("#tweet_content_div").show();
-				$("#friends_content_div").show();
+				$("#tweet_content_div").show('slow');
+				$("#friends_content_div").show('slow');
 				$("#friends_added").append(friend_added);
 				
 

@@ -3,6 +3,7 @@
 var Vboli = {
 	background_url: "url(../images/background/big/back4.png) ",
 	background_pic: "back1.png",
+	send_card_no  : 3,
 	friends_all   :  new Array(),
 	initializer: function(){
 	
@@ -30,7 +31,7 @@ var Vboli = {
 					});
 			}
 			
-			
+
 			$("#get_friends_send").click(function(){
 				var card_pic_id = $("#card_pic_id").attr("card_pic_id");
 				$.get(
@@ -41,6 +42,12 @@ var Vboli = {
 		
 			});
 			$(".friend_profile_img").click(function(){
+				var added_no = jQuery('#friends_added div').length;
+				if (added_no == 3 )
+				{
+					alert("抱歉！容量有限，我们现在只能加三个！谢谢");
+					return false;
+				}
 				var friend_name = $(this).attr("friend_name");
 				var friend_id    = $(this).attr("friend_id");
 				var friend_added =	$('<div/>',{
@@ -54,25 +61,23 @@ var Vboli = {
 		           'src' : '/images/cancel.png',
 		           click: function() {
 		             	//Vboli.remove_friends_div();
+					    var left_no = jQuery('#friends_added div').length;
 						var id = $(this).attr("div_id");
 						var div_id = "#" + id;
 						$(div_id).remove();
+						if (left_no == 1)
+						{
+							$("#friends_content_div").hide('slow');
+							$("#tweet_content_div").hide('slow');
+						}
 		           },
 				   'div_id'   : friend_name
 		         }));
 	
-				/*
-				.append($('<a/>',{
-					'class': 'remove_selected_friends',
-					 'id'   :   friend_name
-				}))
-				*/
-				
-				$("#tweet_content_div").show();
-				$("#friends_content_div").show();
+
+				$("#tweet_content_div").show('slow');
+				$("#friends_content_div").show('slow');
 				$("#friends_added").append(friend_added);
-				
-				
 			});
 			
 			$('.remove_selected_friends').click(function(){
@@ -108,29 +113,32 @@ var Vboli = {
 			
 			$("#submit_card").click(function(){
 				var card_pic_id = $("#card_photo_id").attr("card_photo_id");
-				var input_text  = $("#card_input_text").val();
+				var temp_which = $("#template_which").attr("which");
+				var input_text = $("#card_input_text").val();
+				if (!input_text){
+					alert("对你的好友说几句吧！");
+					return false;
+				}
+				if (temp_which == "post" && !card_pic_id  )	{
+						alert("你还没有上传照片。");
+						return false;	
+				}
+				
 				var card_photo_url = $("#card_photo_url").attr("card_photo_url");
 				var temp_which = $("#template_which").attr("which");
-
-				$("#navi_card").attr('class','card_steps_which unactive');
-				$("#navi_friends").attr('class','card_steps_which active');
-				$.get(
-					"/card_compose.json",
-					{
-						card_photo_url	  : card_photo_url,
-						input_text 		  : input_text,
-						temp_which		  :temp_which
-					},
-					function(data){
-						alert("picture_id--- " + data);
-						$.get(
-							"/get_friends.js",
-							{
-								card_pic_id :data
-							}
-						);
-					}
-					);
+				
+				$("#navi_card").attr('class', 'card_steps_which unactive');
+				$("#navi_friends").attr('class', 'card_steps_which active');
+				$.get("/card_compose.json", {
+					card_photo_url: card_photo_url,
+					input_text: input_text,
+					temp_which: temp_which
+				}, function(data){					
+					$.get("/get_friends.js", {
+						card_pic_id: data
+					});
+				});
+			
 			});
 			
 			$("#send_card").click(function(){

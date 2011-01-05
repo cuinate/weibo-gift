@@ -100,7 +100,7 @@ end
      @user_friends = get_user_friends()
 #    @card_pic_id = params[:card_pic_id]
      @card_pic = Picture.find_by_id(params[:card_pic_id])
-    @card_pic_demo_url = @card_pic.photo.url(:card280)
+     @card_pic_demo_url = @card_pic.photo.url(:card163)
 #    logger.info(@card_pic_demo_url)
 #     splitted_url = @card_pic_demo_url.split("?")		 
 #		 @user_card_url = splitted_url[0]  # the url of photo user just uploaded

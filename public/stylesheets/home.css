@@ -465,6 +465,9 @@ overflow: hidden;
 //-webkit-box-shadow: #333 0px 0px 5px;
 //-moz-box-shadow:    #333 0px 0px 5px;
 }
+ul.temp_thumb li:hover{
+background-color: #e9e9e9;	
+} 
 ul.temp_thumb li .temp_img_div {
 //background: url(../images/background/img_bg.png) ; 
 //background-color:#e9e9e9;
@@ -589,7 +592,6 @@ float:left;
 margin: 5px 10px 10px auto;
 width:500px;
 height:50px;
-
 float:left;
 display:none;
 }
