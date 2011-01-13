@@ -19,7 +19,13 @@ module WeiboGift
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
     config.autoload_paths += %W(#{config.root}/app/middleware/)
    
+    config.after_initialize do
+    # copied from paperclip.rb: due to bundler, this doesn't seem to happen automagically anymore!?!
+     Dir.glob(File.join(File.expand_path(Rails.root), "lib", "paperclip_processors", "*.rb")).each do |processor|
+    require processor # PVDB don't rescue LoadError... let it rip!
+     end
 
+     end
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
     # config.plugins = [ :exception_notification, :ssl_requirement, :all ]

@@ -99,9 +99,7 @@ var Vboli = {
 		    $(".temlate_sel").click(function(){
 				var template_id = $(this).attr("id");
 				var temp_which = $("#template_which").attr("which");
-				
-				$("#navi_template").attr('class','card_steps_which unactive');
-				$("#navi_card").attr('class','card_steps_which active');
+
 				$.get(
 					"/createcard.js",
 					{
@@ -110,11 +108,12 @@ var Vboli = {
 					  
 					});
 			});
+
 			
-			$("#submit_card").click(function(){
+			$("#submit_card_div").click(function(){
 				var card_pic_id = $("#card_photo_id").attr("card_photo_id");
 				var temp_which = $("#template_which").attr("which");
-				var input_text = $("#card_input_text").val();
+				var input_text = $("#card_input_box").val();
 				if (!input_text){
 					alert("对你的好友说几句吧！");
 					return false;
@@ -126,9 +125,7 @@ var Vboli = {
 				
 				var card_photo_url = $("#card_photo_url").attr("card_photo_url");
 				var temp_which = $("#template_which").attr("which");
-				
-				$("#navi_card").attr('class', 'card_steps_which unactive');
-				$("#navi_friends").attr('class', 'card_steps_which active');
+
 				$.get("/card_compose.json", {
 					card_photo_url: card_photo_url,
 					input_text: input_text,
@@ -141,20 +138,12 @@ var Vboli = {
 			
 			});
 			
-			$("#send_card").click(function(){
+			$("#sending_card_btn").click(function(){
 				var card_pic_id = $("#card_pic_id").attr("card_pic_id");
 				var friends_id = new Array(); 
 				//----- testing code for find -------
-				var finder="natecui"
-				var num_friends = jQuery('#friends_all div.one_friend').length;
-				 for(var i=0;i<num_friends;i++){
-			            var friend_name = $("#friends_all div.one_friend:eq("+i+")").find('span').text();
-						if (friend_name == finder)
-						{alert("finded!"+friend_name);}
-						
-			        }
 				// ----------------------------------
-				/*
+				
 				$("#friends_added").find('.firend_selected_div').each(function(){
 					var friend_id = $(this).attr('id');
 					friends_id.push(friend_id);
@@ -165,7 +154,7 @@ var Vboli = {
 						card_pic_id	 	  : card_pic_id,
 						friends_id 		  : friends_id
 					});
-					*/
+					
 			})
 	},
 	

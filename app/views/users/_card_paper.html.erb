@@ -18,9 +18,14 @@ $(document).ready(function() {
 		$(".temp_img_div a").lightBox(); 
 }); 
 </script>
+<div id="card_navi_btn">
+	<a href="/createcard?temp_which=post" ><div id="card_navi_post" style="background-position: 0px -56px;"></div></a>
+	<div id="card_navi_default" style="background-position: 0px -56px;"></div>
+	<div id="template_which" which="bcard" ></div>
+</div>
 
-<div id="temp_thumb_wrapper">
-	<ul class = "temp_thumb">
+<div id="card_creation_div">
+	<ul class = "cards_thumb">
 	<% @bcards.each do |bcard| %>
 	<li>
 	<div class="temp_img_div">
@@ -31,7 +36,7 @@ $(document).ready(function() {
 		</a>
 		
 	</div>
-	<a href="javascript:void(0)" ><div id="<%= bcard.id %>" class="temlate_sel">选择模板</div></a>
+	<a href="javascript:void(0)" ><div id="<%= bcard.id %>" class="temlate_sel"></div></a>
 	</li>
 
 	<%end%>

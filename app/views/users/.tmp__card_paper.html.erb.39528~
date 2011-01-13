@@ -1,0 +1,44 @@
+
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function() {
+		$(".pic_back_slot_thumb").hover(function(){
+			var back_name = $(this).attr("id");
+			var back_url  = "url(../images/background/big/" + back_name + ".png)"
+			$("#big_picture").css({'background': back_url});
+		});
+		
+		$(".pic_back_slot_thumb").click(function(){
+			var back_name = $(this).attr("id");
+			Vboli.background_url  = "url(../images/background/big/" + back_name + ".png)"
+			Vboli.background_pic  = back_name + ".png"
+			$("#big_picture").css({'background': Vboli.background_url});
+			$("#step2").trigger('click');
+		});
+		
+		$(".temp_img_div a").lightBox(); 
+}); 
+</script>
+<div id="card_navi_btn">
+	<a href="javascript:void(0)" ><div id="card_navi"></div></a>
+	
+	<div id="template_which" which="post"></div>
+</div>
+
+<div id="card_creation_div">
+	<ul class = "cards_thumb">
+	<% @bcards.each do |bcard| %>
+	<li>
+	<div class="temp_img_div">
+		
+		<a href="<%= bcard.pic(:thumb_b)%>">
+		<%= image_tag  bcard.pic(:thumb), :title => bcard.description,
+		     								  :class => 'thumb'%>
+		</a>
+		
+	</div>
+	<a href="javascript:void(0)" ><div id="<%= bcard.id %>" class="temlate_sel"></div></a>
+	</li>
+
+	<%end%>
+	</ul>
+</div>

@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 	# GET /members/1.xml
 	def show_bcard
     # get the bcards pictures
+    session[:upload_pic_id] = 0
     @bcards = Bcard.all 
 		respond_to do |format|
 			format.html # show.html.erb
@@ -31,55 +32,31 @@ end
 	
 	def create_card
     @which_card = params[:temp_which] 
-    session[:temp_id] = params[:temp_id]
-    
+    @card_photo_url =''
     if(@which_card == "post")#post-card 
-  	  @template = Template.find_by_id(params[:temp_id]) 
-  	  @card_back_div_style = "background:url(" + @template.back.url + ")"
-  	  
-  	  #--- selection picture div coordination ----- testing
-  	  pic_x = @template.pic_x.to_s
-  	  pic_y = @template.pic_y.to_s
-  	  pic_width = @template.pic_width.to_s
-  	  pic_height = @template.pic_height.to_s
-  	  @card_pic_sel_div_style = "top:" + pic_y + "px;left:" + pic_x + "px;width:" + pic_width + "px;height:" + pic_height + "px;"
-  	  
-  	  @card_pic_div_style = "width:" + pic_width + "px;height:" + pic_height + "px;"
-  	  #---- text input box div coordination
-      input_x = @template.input_x.to_s
-  	  input_y = @template.input_y.to_s
-  	  input_width = (@template.input_width + 10).to_s
-  	  input_height = (@template.input_height + 10).to_s
-  	  @card_input_div_style = "top:" + input_y + "px;left:" + input_x + "px;width:" + input_width + "px;height:" + input_height + "px;"
-  	  
-  	  #---- text input area coordination style
-  	  text_width = @template.input_width.to_s
-  	  text_height = @template.input_height.to_s
-  	  @card_input_text_style = "width:" + text_width + "px;height:" + text_height +"px;"
-  	  logger.info(@card_back_div_style)
+      if session[:upload_pic_id] !=0
+        @upload_pic = Picture.find_by_id(session[:upload_pic_id])
+        @card_back_div_style = "background:url(" + @upload_pic.photo.url(:back500) + ")"
+        @card_photo_url = @upload_pic.photo.url(:back500)
+      else
+  	     @card_back_div_style = "background:url(../images/card_big_back.png) no-repeat"
+      end
     else # "bolilai" card
       @bcard = Bcard.find_by_id(params[:temp_id])    
       @card_back_div_style = "background:url(" + @bcard.pic.url(:thumb_b) + ")"
+      @card_photo_url =@bcard.pic.url(:thumb_b)
     end
 	  respond_to do |format|
       format.js
+      format.html
     end
 	end
 	
 	def create_card_input
 	  pic_id = params[:pic_id]
 	  @pic = Picture.find_by_id(pic_id)
-	  
-	  temp_id = session[:temp_id]
-	  @template = Template.find_by_id(temp_id)
-	  if @template.pic_width == 480 
-	     @pic_url = @pic.photo.url(:card480)
-	  elsif @template.pic_width == 400
-	     @pic_url = @pic.photo.url(:card400)
-	  else
-	     @pic_url = @pic.photo.url(:card280)
-	  end
-	 
+	  @pic_url = @pic.photo.url(:back1024)
+	
 	 
 	  respond_to do |format|
 	   format.html # create_card_input.html.erb
@@ -98,12 +75,13 @@ end
 #    self.weibo_agent = Weibo::Base.new(oauth)
  
      @user_friends = get_user_friends()
-#    @card_pic_id = params[:card_pic_id]
+      @card_pic_id = params[:card_pic_id]
      @card_pic = Picture.find_by_id(params[:card_pic_id])
-     @card_pic_demo_url = @card_pic.photo.url(:card163)
+     @card_pic_url = @card_pic.photo.url(:back500)
 #    logger.info(@card_pic_demo_url)
-#     splitted_url = @card_pic_demo_url.split("?")		 
-#		 @user_card_url = splitted_url[0]  # the url of photo user just uploaded
+     splitted_url = @card_pic_url.split("?")		 
+  	 @user_card_url = splitted_url[0]  # the url of photo user just uploaded
+     @tweet_pic_back_style = "background:url(" + @user_card_url + ") no-repeat"
     respond_to do |format|
 	   format.html # get_friends.html.erb
 	   format.js
@@ -116,12 +94,12 @@ end
    card_id = params[:card_pic_id]
    logger.info("--- friends_id : ---#{@friends_id}")
    @card_pic = Picture.find_by_id(params[:card_pic_id])
-   @card_pic_demo_url = @card_pic.photo.url(:card400)
+   @card_pic_demo_url = @card_pic.photo.url(:back500)
    logger.info(@card_pic_demo_url)
    splitted_url = @card_pic_demo_url.split("?")		 
 	 @user_card_url = splitted_url[0]  # the url of photo user just uploaded
 	 @user_card_url = "public" + @user_card_url
-	 status ="祝你生日快乐！"+"@"+@friends_id[0]
+	 status ="送个卡给你！"+"@"+@friends_id[0]
 	 logger.info("---微波 -- status #{status}")
 	 aFile = File.new(@user_card_url)
 	 upload_card(status,aFile)

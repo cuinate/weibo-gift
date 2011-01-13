@@ -1,0 +1,102 @@
+
+<div id="content_part">
+<script type="text/javascript">
+	function pageSelCallback(page_index, jq){
+		var items_per_page = 48;
+		var num_friends = jQuery('#friends_all div.one_friend').length;
+	//	alert("--[in callback]-- no of friends :" + num_friends );
+	//	var new_content = jQuery('#friends_all li.one_firend:eq('+page_index+')').clone();
+	//	$('#friends_page').empty().append(new_content);
+		
+		 var max_elem = Math.min((page_index+1) * items_per_page, num_friends);
+		$("#friends_page").empty();
+        // 获取加载元素
+        for(var i=page_index*items_per_page;i<max_elem;i++){
+            $("#friends_page").append($("#friends_all div.one_friend:eq("+i+")").clone());
+        }
+        //阻止单击事件
+	  Vboli.initializer();
+       return false;
+	}
+	function initPagination(){
+		// count how many friends 
+		var num_friends = jQuery('#friends_all div.one_friend').length;
+		// create one page 
+		$("#friends_pagination").pagination(num_friends,{
+			callback       : pageSelCallback,
+			items_per_page : 48,
+			next_text      : "下一页",
+			prev_text       : "上一页"
+		});
+		// save all friend's name into array
+		for(var i=0; i<num_friends;i++){
+			var friend_name = $("#friends_all div.one_friend:eq("+i+")").find('span').text();
+			Vboli.friends_all.push(friend_name);
+        }
+	}
+	$(document).ready(function(){
+		initPagination();
+		// --- friends suggest box 
+	   $("#arrcity").suggest(Vboli.friends_all,{dataContainer:'#friends_added', attachObject:'#suggest'});
+	});
+</script>
+
+
+	<div id = "friends_wrapper">
+		<input type="hidden" name="arrcity_3word" id="arrcity_3word" value="" />
+		<div id="friends_search_box">
+		<input type="text" name="arrcity" id="arrcity" class="friends_input"/>
+		</div>
+		<div id='suggest' class="ac_results"></div>
+		
+		
+		<ul id  class = "friends_thumb">
+			<div id="friends_page">
+			</div>
+		</ul>		
+		
+		<div id="pagination_div">
+		<div id ="friends_pagination"></div>
+		</div>
+	</div>
+	<!--- hidden  result -->
+	<div id="send_card_div" >
+
+		 <div id="friends_content_div">	
+		 	<span>发送给以下好友：</span>	 	
+			<div id = "friends_added">				
+			</div>			 
+		 </div>
+	
+		 <div id="tweet_pic_div">
+		    <div id="envelop_top"></div>
+			<div id="tweet_pic"></div>
+			<div id="envelop_bottom">
+				<div id="stamp_div"></div>
+			</div>
+			
+		 </div>
+		 <a id="send_card" href="javascript:void(0)">
+			<div id="sending_card_btn">	</div>		
+			</a>
+	</div>
+	
+	<!--- hidden page result -->
+		<div id="friends_all" style="display:none;">
+	
+			<% @user_friends.each do |p| %>
+			<div class="one_friend">
+				<li>
+				<div class="friend_img" title="<%= p["screen_name"] %>">
+					<%= image_tag  p["profile_image_url"], :class => 'friend_profile_img',
+					                                       :friend_id => p["weibo_id"],
+					                                       :friend_name => p["screen_name"] %> 
+					
+				</div>
+				</li>
+			</div>
+			<%end%>
+	
+		</div>
+</div>	
+	

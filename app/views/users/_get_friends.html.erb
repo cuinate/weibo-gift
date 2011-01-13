@@ -1,8 +1,8 @@
 
-
+<div id="content_part">
 <script type="text/javascript">
 	function pageSelCallback(page_index, jq){
-		var items_per_page = 24;
+		var items_per_page = 48;
 		var num_friends = jQuery('#friends_all div.one_friend').length;
 	//	alert("--[in callback]-- no of friends :" + num_friends );
 	//	var new_content = jQuery('#friends_all li.one_firend:eq('+page_index+')').clone();
@@ -24,7 +24,7 @@
 		// create one page 
 		$("#friends_pagination").pagination(num_friends,{
 			callback       : pageSelCallback,
-			items_per_page : 24,
+			items_per_page : 48,
 			next_text      : "下一页",
 			prev_text       : "上一页"
 		});
@@ -44,7 +44,9 @@
 
 	<div id = "friends_wrapper">
 		<input type="hidden" name="arrcity_3word" id="arrcity_3word" value="" />
+		<div id="friends_search_box">
 		<input type="text" name="arrcity" id="arrcity" class="friends_input"/>
+		</div>
 		<div id='suggest' class="ac_results"></div>
 		
 		
@@ -52,6 +54,7 @@
 			<div id="friends_page">
 			</div>
 		</ul>		
+		
 		<div id="pagination_div">
 		<div id ="friends_pagination"></div>
 		</div>
@@ -59,47 +62,41 @@
 	<!--- hidden  result -->
 	<div id="send_card_div" >
 
-	 <div id="friends_content_div">
-	 	
-			<div id = "friends_added">
-				
+		 <div id="friends_content_div">	
+		 	<span>发送给以下好友：</span>	 	
+			<div id = "friends_added">				
+			</div>			 
+		 </div>
+	
+		 <div id="tweet_pic_div">
+		    <div id="envelop_top"></div>
+			<div id="tweet_pic" style="<%=@tweet_pic_back_style%>"></div>
+			<div id="envelop_bottom">
+				<div id="stamp_div"></div>
 			</div>
-			 <div id="sending_card_btn">
-				<div id='card_pic_id' card_pic_id="<%=@card_pic_id%>"></div> 
-			 	<a id="send_card" href="javascript:void(0)" class="submit_card sending_card">发送</a>
-			 </div>
-		
-	 </div>
-	 <div id="tweet_content_div">
-	 	<span>你的好友通过@微薄礼（vboli）给你送了一张卡片</span>
-	 </div>
-	 <div id="tweet_pic_div">
-	 	
-	    <%= image_tag  @card_pic_demo_url,:title => 'vob card',
-     								      :class => 'tweet_pic_thumb'%>
-	 </div>
-
+			
+		 </div>
+	
+		 <a href="javascript:void(0)"><div id="sending_card_btn">	</div></a>
 	</div>
 	
 	<!--- hidden page result -->
+			 <div id="card_pic_id" card_pic_id="<%=@card_pic.id%>"></div>
 		<div id="friends_all" style="display:none;">
 	
 			<% @user_friends.each do |p| %>
 			<div class="one_friend">
 				<li>
-				<div class="friend_img">
+				<div class="friend_img" title="<%= p["screen_name"] %>">
 					<%= image_tag  p["profile_image_url"], :class => 'friend_profile_img',
 					                                       :friend_id => p["weibo_id"],
 					                                       :friend_name => p["screen_name"] %> 
 					
-				</div>
-				<div class= "friend_name">
-				<span style="font-size:12px; color:#73888d;display:block;overflow:hidden;"><%= p["screen_name"] %></span>
 				</div>
 				</li>
 			</div>
 			<%end%>
 	
 		</div>
-	
+</div>	
 	

@@ -1,0 +1,57 @@
+<%= render :partial => "show" %>
+<% if @which_card == "post"%>
+<div id="temp_div" >
+	<div id="card_div" style="<%=@card_back_div_style%>">
+
+			<div id="card_pic_div"">
+			  	 <div id="upload_card_pic">
+					<input id="picture_photo" type ="file" name="filedata" class="display:none; margin-top:40px;">
+				</div>
+			</div>
+<%else%>
+<div id="temp_div">
+	<div id="card_div">
+		<div id="card_pic_div" style="<%=@card_back_div_style%>"></div>
+<%end%>
+		<div id="font_color_btn_div">
+			<div id="font_btn_div"></div>
+			<div id="color_btn_div"></div>
+		</div>
+		<div id="font_demo_div"></div>
+	</div>
+	
+	<div id="font_color_div">
+		<div id="color_sel_div">
+			<div id="color_sel_div1" class="color_sel_subdiv">
+			<ul class = "color_sel" id="color_set1">
+				<li><div id="color1" class="color_div" color="ec2929" style="background-color:#ec2929;"></div></li>
+				<li><div id="color2" class="color_div" color="ff6d15" style="background-color:#ff6d15;"></div></li>
+				<li><div id="color3" class="color_div" color="edcf2a" style="background-color:#edcf2a;"></div></li>
+				<li><div id="color4" class="color_div" color="4b1806" style="background-color:#4b1806;"></div></li>
+				<li><div id="color5" class="color_div" color="cf23a1" style="background-color:#cf23a1;"></div></li>
+				<li><div id="color6" class="color_div" color="e9b9e6" style="background-color:#e9b9e6;"></div></li>
+			</ul>
+			</div>
+			<div id="color_sel_div2" class="color_sel_subdiv">
+			<ul class = "color_sel" id="color_set1">
+				<li><div id="color7" class="color_div" color="2d52da" style="background-color:#2d52da;"></div></li>
+				<li><div id="color8" class="color_div" color="69eaf9" style="background-color:#69eaf9;"></div></li>
+				<li><div id="color9" class="color_div" color="36de1a" style="background-color:#36de1a;"></div></li>
+				<li><div id="color10" class="color_div" color="0" style="background-color:#000000;"></div></li>
+				<li><div id="color11" class="color_div" color="6c6c6c" style="background-color:#6c6c6c;"></div></li>
+				<li><div id="color12" class="color_div" color="c1c1c1" style="background-color:#c1c1c1;"></div></li>
+			</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="input_div">
+	<div id="input_back_div">
+		<div id="input_box_div"><input id="card_input_box" type="text" name="input_card"></div>
+		<div id="submit_card_div"></div>
+	</div>
+</div>
+
+
+
+

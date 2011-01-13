@@ -1,0 +1,35 @@
+
+var pic_crop  = $('<div/>',{
+	'id'   : "picture_crop"
+}).append("<%= escape_javascript(render :partial =>"cropping")%>");
+ 
+$(pic_crop).hide().appendTo('body').fadeIn();
+
+$(document).ready(function(){
+function showPreview(coords)
+{
+	var rx = <%= Picture::PHOTO_BW %> / coords.w;
+	var ry = <%= Picture::PHOTO_BH %> / coords.h;
+	var ratio = <%= @picture.photo_geometry(:original).width %> / <%= @picture.photo_geometry(:back1024).width %>; 
+
+	$('#preview').css({
+		width: Math.round(rx * <%= @picture.photo_geometry(:back1024).width.to_i %>) + 'px',
+		height: Math.round(ry * <%= @picture.photo_geometry(:back1024).height.to_i %>) + 'px',
+		marginLeft: '-' + Math.round(rx * coords.x) + 'px',
+		marginTop: '-' + Math.round(ry * coords.y) + 'px'
+	});
+  $('#crop_x').val(Math.round(coords.x * ratio));
+  $('#crop_y').val(Math.round(coords.y * ratio));
+  $('#crop_w').val(Math.round(coords.w * ratio));
+  $('#crop_h').val(Math.round(coords.h * ratio));
+}
+
+$(function() {
+  $('#cropbox').Jcrop({
+      onSelect: showPreview,
+      onChange: showPreview,
+      setSelect:   [ 0, 0, 500, 500 ],
+      aspectRatio: 1
+    });
+});	
+});

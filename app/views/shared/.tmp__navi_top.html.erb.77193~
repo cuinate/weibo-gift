@@ -1,0 +1,25 @@
+<div id="navi_top">
+    <div class="wrapper">
+		<div id="stepps_navi">
+			
+			<div id="selection_navi">
+				<span id="step_saved" step_saved ="step1" style="display:none;"></span>
+				<div id="step1" class="steps_sel_on"></div>
+				<div id="arrow1" class="arrow"></div>
+				<div id="step2" class="steps_sel_on"></div>
+				<div id="arrow1" class="arrow"></div>
+				<div id="step3" class="steps_sel_on"></div>
+				<div id="arrow1" class="arrow"></div>
+				<div id="step4" class="steps_sel_on"></div>
+			</div>
+		</div>
+			<div id="caption_navi">
+				<span id="cap_step_saved" cap_step_saved ="cap_step1" style="display:none;"></span>
+			   <div class="step_caption_on" id="cap_step1"> <p> 选择信纸 </p> </div>
+			   <div class="step_caption_off" id="cap_step2"> <p> 说点什么 </p> </div>
+			   <div class="step_caption_off" id="cap_step3"> <p>  选择信封 </p> </div>
+			   <div class="step_caption_off" id="cap_step4"> <p> 盖戳发送 </p> </div>
+			</div>
+		</div>
+		<div id="upload_pic_id" upload_pic_id="0" style="display:none"></div>
+</div>

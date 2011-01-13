@@ -21,18 +21,18 @@ $(document).ready(function() {
 		  cancelImg  	  : '/images/cancel.png',
 		  multi      	  : false,
 		  script     	  : '/pictures.json',
-	      fileDesc        : 'Photo',
+	      fileDesc        : '选择图片',
 	      auto            :  true,
-	      fileExt         : '*.png;*.jpg;*.gif',
-	      sizeLimit       : <%= 2.megabytes %>,
-          buttonImg       : '/images/background/file_upload_btn.png',
+	      fileExt         : '*.png;*.jpg;*.gif;*.JPG',
+	      sizeLimit       : <%= 3.megabytes %>,
+          buttonImg       : '/images/upload_pic2.png',
           wmode           : 'transparent',
-          width           : 184,
-          height          : 40,
+          width           : 355,
+          height          : 98,
 		  onComplete      : function(event, queueID, fileObj, response, data){
 							//alert(response);
 							$.get(
-								"/create_card_input.js",
+								"/cropping.js",
 								{
 									pic_id: response
 								});

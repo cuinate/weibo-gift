@@ -1,45 +1,8 @@
-<%if session[:weibo_id]%>
+
 <div id="header">
-	<div class="wrapper">
-		<div class="top-nav">
-			<div class = "card_nav">
-				<ul>
-					<li>
-						<div class ="card_steps">
-							<div class = "card_steps_navi">
-								<%= link_to '选择模板', show_bcard_path , :class => 'step_descp'%>
-				
-							</div>
-							<div id="navi_template" class = "card_steps_which active">
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class ="card_steps">
-							<div class = "card_steps_navi">
-							
-								<span class = "step_descp unclick"> 制作贺卡</span>
-							</div>
-							<div id="navi_card" class = "card_steps_which unactive">
-							</div>
-						</div>
-					</li>
-					
-					<li>
-						<a href="javascript:void(0)" id="get_friends_send">
-						<div  class ="card_steps">
-							<div class = "card_steps_navi">
-							
-								<span class = "step_descp unclick"> 发送好友</span>
-							</div>
-							<div id="navi_friends" class = "card_steps_which unactive">
-							</div>
-						</div>
-						</a>
-					</li>
-				</ul>
-			</div>
-			<div class="login">	
+	<div id="header-top">
+		<div class="login">
+			<%if session[:weibo_id]%>	
 				<% @user = User.find_by_weibo_id(session[:weibo_id])%>
 				<div id="user_profile_img_div">
 					<%= image_tag @user.profile_image_url, :class => 'profile_image_url'%>
@@ -50,24 +13,17 @@
 					<%= link_to "退出", signout_url,:class =>'login_signout'%>
 				</div>
 				</div>
-				
-			
-			</div>
-		</div>
-	</div>
-</div><!--header end -->
-<%else%>
-<div id="header_no_login" class="header_no_login">
-<div class="wrapper">
-	<div class="top-nav">
-		<div class="login">
+	      <%else%>
+		    <div class="login">
 			<a href="/login"> <%= image_tag "login.png", :class => 'log-in-button'%> </a>
-						
+		   </div>
+		  <%end%>
+
+
 		</div>
 	</div>
+	<div id="header-bottom"></div>
 </div>
-</div>
-<%end%>
 <script>
 $(document).ready(function(){
 	Vboli.initializer();

@@ -25,6 +25,8 @@ WeiboGift::Application.routes.draw do
 # picture 
   match 'card_compose' => 'pictures#card_compose', :as => :card_compose
   
+  #pictures
+  match 'cropping' =>'pictures#cropping', :as => :cropping
   resources :users
   resources :pictures
   resources :templates
