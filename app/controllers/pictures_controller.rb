@@ -70,6 +70,8 @@ class PicturesController < ApplicationController
 		 input_text         = params[:input_text]
 		 template_id        = session[:temp_id] # get the template ID from session
      temp_which         = params[:temp_which]
+     font               = params[:font]
+     color              = params[:color]
 
     
   		 #@user_pic = Picture.find_by_id(card_pic_id)
@@ -101,7 +103,7 @@ class PicturesController < ApplicationController
 
 
        #--- path and name. to be config/updated in new environments
-        font_path = 'public/fonts/fz_shaoer.ttf'
+        font_path = 'public/fonts/' + font
         output_path = 'public/system/outputs'
         
 
@@ -114,15 +116,26 @@ class PicturesController < ApplicationController
           #final_img = Magick::Image.new(640,640,Magick::HatchFill.new('white','white'))
           #@final_img.composite!(img, 25, 25, Magick::OverCompositeOp)
           @final_img.composite!(img, 33, 34, Magick::OverCompositeOp)
-  
+          
+          stamp_back_path = 'public/images/background/stamp.png'
+          @final_img_with_stamp = Magick::Image.read(stamp_back_path).first #bg_image_path).first 
+          @final_img.composite!( @final_img_with_stamp, 0, 0, Magick::OverCompositeOp)
+          
+          user_image_path = current_user.profile_image_url
+          user_image = Magick::Image.read(user_image_path).first #bg_image_path).first 
+          user_image.opacity = Magick::MaxRGB / 2
+          #shadow = user_image.shadow(0,0,3.0)
+          #shadow = shadow.colorize(1, 1, 1, "gray45")
+          #user_image = shadow.composite(user_image, 0, 12, Magick::OverCompositeOp)
+          @final_img.composite!( user_image, 490, 570, Magick::OverCompositeOp)
           gc= Magick::Draw.new
           #gc.annotate(img, 0, 0, @template.input_x, @template.input_y, d_str) do  #可以设置文字的位置，参数分别为路径、宽度、高度、横坐标、纵坐标
           #gc.annotate(@final_img, 0, 0, 40, 550, @d_str) do  #可以设置文字的位置，参数分别为路径、宽度、高度、横坐标、纵坐标
-          gc.annotate(@final_img, 0, 0, 40, 565, @d_str) do  #可以设置文字的位置，参数分别为路径、宽度、高度、横坐标、纵坐标
+          gc.annotate(@final_img, 0, 0, 60, 580, @d_str) do  #可以设置文字的位置，参数分别为路径、宽度、高度、横坐标、纵坐标
             #self.gravity = Magick::CenterGravity
             self.font = font_path #f
             self.pointsize = font_size                 #字体的大小
-            self.fill = '#000'                         #字体的颜色
+            self.fill = '#' + color                        #字体的颜色
             self.stroke = "none"
           end          
 

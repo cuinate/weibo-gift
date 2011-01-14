@@ -2,18 +2,11 @@
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function() {
 	
-	Vboli.initializer();
-	 $("#card_input_textarea").focus();
-	$("#big_picture").css({'background': Vboli.background_url});
-	$("#upload_pic_btn").click(function(){
-		$("#pic_sel_thumb").attr('class','display_off');
-		$("#upload_picture_div").attr('class','display_on');
-	});
-	
-	
 	$('#picture_photo').click(function(event){ 
 		event.preventDefault();
 	}); 
+	//Vboli.initializer();
+
 	
 <% session_key_name = Rails.application.config.session_options[:key] %>
 	  $('#picture_photo').uploadify({

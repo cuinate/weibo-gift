@@ -30,7 +30,7 @@
 		});
 		// save all friend's name into array
 		for(var i=0; i<num_friends;i++){
-			var friend_name = $("#friends_all div.one_friend:eq("+i+")").find('span').text();
+			var friend_name = $("#friends_all div.one_friend:eq("+i+")").find('img').attr("friend_name");
 			Vboli.friends_all.push(friend_name);
         }
 	}

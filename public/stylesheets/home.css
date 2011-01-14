@@ -311,6 +311,7 @@ height:27px;
 margin-top:10px;	
 }
 #font_btn_div{
+cursor:pointer;
 float:left;
 background: url(../images/font_sel.png) no-repeat;
 width:27px;
@@ -318,22 +319,29 @@ height:27px;
 margin-left:475px;
 }
 #color_btn_div{
+cursor:pointer;
 float:left;
 background: url(../images/color_sel.png) no-repeat;
 width:27px;
 height:27px;
 margin-left:5px;
+
 }
 #font_demo_div{
 float:left;
-width:567px;
-height:45px;
-margin-top:10px;	
+width:382px;
+height:45.5px;
+margin-left:86px;
+margin-top:10px;
+background: url(../images/font1.png) no-repeat;	
+background-position:0px 0px;
+
 }
 #font_demo{
 width:378px;
 height:38px;
 margin-left:10px;
+border:1px solid red;
 }
 #font_color_div{
 float:left;
@@ -341,15 +349,17 @@ width:65px;
 height:646px;
 }
 #color_sel_div{
-width:60px;
-height:98px;
+display:none;
+width:131px;
+height:167px;
 margin-left:-30px;
-margin-top:545px;
+margin-top:466px;
+
 background: url(../images/color_bubble.png) no-repeat;
 }
 .color_sel_subdiv{
 float:left;
-margin-left:15px;
+margin-left:20px;
 margin-top: 15px;	
 }
 ul.color_sel {
@@ -360,25 +370,39 @@ padding: 0px;
 ul.color_sel li {
 display: block;
 float: left;
-height: 9px;
-width:  9px;
-margin-right:4px;
-margin-bottom: 6px;
+height: 20px;
+width:  20px;
+margin-right:12px;
+margin-bottom: 12px;
 overflow: hidden;
 }
+
 .color_div{
-height:9px;
-widht:9px;
+height:20px;
+widht:20px;
 }
 .color_div:hover{
-border:2px solid #1b8cbb;
+cursor:pointer;
 }
 #font_sel_div{
-width:60px;
-height:98px;
+display:none;
+width:131px;
+height:167px;
 margin-left:-30px;
-margin-top:545px;
+margin-top:466px;
 background: url(../images/color_bubble.png) no-repeat;
+}
+.font_demo_small_div{
+cursor:pointer;
+float:left;
+width:100px;
+height:15px;
+margin-bottom:12px;
+margin-left:15px;
+background: url(../images/font_demo.png) no-repeat;
+}
+.font_demo_small_div:hover{
+background-color:#c9dfff;
 }
 #input_div{
 float:left;
@@ -472,6 +496,7 @@ float:left;
  -webkit-border-radius: 5px;
  -moz-border-radius: 5px;
  border-radius: 5px;
+ cursor:pointer;
  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
  box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
@@ -495,7 +520,7 @@ float:left;
 #friends_added{
 background:white;
 width:440px;
-height:70px;
+height:100px;
 margin-top:10px;
 border: 1px solid #dfdfdf;
 }
@@ -529,13 +554,13 @@ z-index: -1;
 #envelop_bottom{
 width:380px;
 height:251px;
-margin-top:-220px;
+margin-top:-207px;
 background: url(../images/xinfeng_front.png) no-repeat;
 z-index: -3;
 }
 #tweet_pic{
-height:296px;
-width:300px;
+height:283px;
+width:323px;
 margin-top:-170px;
 margin-left:50px;
 background: url(../images/test.png) no-repeat;
@@ -567,6 +592,24 @@ height:39px;
 width:155px;
 margin-left:140px;
 background: url(../images/send_card.png) no-repeat;	
+}
+
+/*====== firends select ====*/
+.firend_selected_div{
+//width:100px;
+//height:20px;
+background: #d9ecf4;
+float: left;
+margin: 15px 5px 1px 10px;
+padding: 5px 5px;
+white-space: nowrap;
+font-family: Arial;
+font-size:16px;
+color:#545454;
+}
+.remove_selected_friends{
+float:right;
+display:block;
 }
 /*============================*/
 /*=== template edit show  ===*/

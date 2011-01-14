@@ -5,6 +5,8 @@ var Vboli = {
 	background_pic: "back1.png",
 	send_card_no  : 3,
 	friends_all   :  new Array(),
+	color_btn     : 0,
+	font_btn      : 0,
 	initializer: function(){
 	
 			/* ------- creating card steps   -----------------*/
@@ -31,7 +33,87 @@ var Vboli = {
 					});
 			}
 			
-
+			function color_font_sel_click(){
+				var x_position = 0;
+				var y_position = 0;
+				var font_val = $("#font_sel_value").attr("sel_font");
+				var color_val = $("#color_sel_value").attr("sel_color") - 1;
+				if (font_val%2 == 0){
+					x_position = -382;
+				}
+				if ( (font_val == 1) || (font_val == 2) ){
+					y_position = -1* color_val*45.5;
+				}
+				else if((font_val == 3) || (font_val ==4)){
+					y_position = -1 * (color_val*45.5 + 12*45.5);
+							}
+				else{
+					y_position = -1 * (color_val*45.5 + 24*45.5);
+						}
+			    var font_png_back_position =x_position + "px " + y_position + "px";
+				
+				$("#font_demo_div").css('backgroundPosition', font_png_back_position);
+				
+			}
+			$(".color_div").click(function(){
+				var color_val= $(this).attr("color_value");
+				var color = $(this).attr("color");
+				$("#color_sel_value").attr("sel_color", color_val);
+				$("#color_sel_value").attr("color_sel_value", color);
+				color_font_sel_click();
+			});
+			
+			$(".font_demo_small_div").click(function(){
+			var font_val= $(this).attr("font_value");
+			var font = $(this).attr("font");
+			$("#font_sel_value").attr("sel_font", font_val);
+			$("#font_sel_value").attr("font_sel_value", font);
+			color_font_sel_click();
+		});
+		
+			
+			$("#font_btn_div").click(function(){
+				if (Vboli.color_btn == 1) {
+					$("#color_sel_div").hide('slow');
+					$("#font_sel_div").show('slow');
+					Vboli.color_btn = 0;
+					Vboli.font_btn = 1;
+						return true;
+				}
+				if (Vboli.font_btn == 1 ){
+				    $("#font_sel_div").hide('slow');
+					Vboli.font_btn = 0;
+					return true;
+				}
+				if (Vboli.font_btn == 0){
+					$("#font_sel_div").show('slow');
+					Vboli.font_btn = 1;
+						return true;
+					
+				}
+				
+			});
+			$("#color_btn_div").click(function(){
+				if (Vboli.font_btn == 1) {
+					$("#font_sel_div").hide('slow');
+					$("#color_sel_div").show('slow');
+					Vboli.font_btn = 0;
+					Vboli.color_btn = 1;
+					return false;
+				}
+				if (Vboli.color_btn == 1 ){
+				    $("#color_sel_div").hide('slow');
+					Vboli.color_btn = 0;
+					return false;
+				}
+				if (Vboli.color_btn == 0){
+					$("#color_sel_div").show('slow');
+					Vboli.color_btn = 1;
+					return false;
+					
+				}
+				
+			});
 			$("#get_friends_send").click(function(){
 				var card_pic_id = $("#card_pic_id").attr("card_pic_id");
 				$.get(
@@ -56,9 +138,9 @@ var Vboli = {
 				})
 				.append(friend_name)
 				.append($('<img/>', {
-				  'style': 'margin-left:3px; margin-top:2px;cursor:pointer;display:block;float:right;',
+				  'style': 'margin-left:5px; margin-top:0px;cursor:pointer;display:block;float:right;',
 				  'class' : 'remove_selected_friends',
-		           'src' : '/images/cancel.png',
+		           'src' : '/images/del_friends.png',
 		           click: function() {
 		             	//Vboli.remove_friends_div();
 					    var left_no = jQuery('#friends_added div').length;
@@ -126,10 +208,14 @@ var Vboli = {
 				var card_photo_url = $("#card_photo_url").attr("card_photo_url");
 				var temp_which = $("#template_which").attr("which");
 
+				var font = $("#font_sel_value").attr("font_sel_value");
+				var color = $("#color_sel_value").attr("color_sel_value");
 				$.get("/card_compose.json", {
 					card_photo_url: card_photo_url,
 					input_text: input_text,
-					temp_which: temp_which
+					temp_which: temp_which,
+					font      : font,
+					color     : color
 				}, function(data){					
 					$.get("/get_friends.js", {
 						card_pic_id: data

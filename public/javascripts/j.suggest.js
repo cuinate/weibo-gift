@@ -176,9 +176,9 @@
 					})
 					.append(friend_name)
 					.append($('<img/>', {
-					  'style': 'margin-left:3px; margin-top:2px;cursor:pointer;',
-					  'class' : 'remove_selected_friends',
-			           'src' : '/images/cancel.png',
+					  'style': 'margin-left:5px; margin-top:0px;cursor:pointer;display:block;float:right;',
+				      'class' : 'remove_selected_friends',
+		               'src' : '/images/del_friends.png',
 			           click: function() {
 			            var left_no = jQuery('#friends_added div').length;
 						var id = $(this).attr("div_id");

@@ -77,7 +77,7 @@ end
      @user_friends = get_user_friends()
       @card_pic_id = params[:card_pic_id]
      @card_pic = Picture.find_by_id(params[:card_pic_id])
-     @card_pic_url = @card_pic.photo.url(:back500)
+     @card_pic_url = @card_pic.photo.url(:back300)
 #    logger.info(@card_pic_demo_url)
      splitted_url = @card_pic_url.split("?")		 
   	 @user_card_url = splitted_url[0]  # the url of photo user just uploaded
@@ -92,6 +92,7 @@ end
  def send_card
    @friends_id = params[:friends_id]
    card_id = params[:card_pic_id]
+   logger.info("--- friends_no : ---#{@friends_id.length}")
    logger.info("--- friends_id : ---#{@friends_id}")
    @card_pic = Picture.find_by_id(params[:card_pic_id])
    @card_pic_demo_url = @card_pic.photo.url(:back500)
@@ -99,10 +100,15 @@ end
    splitted_url = @card_pic_demo_url.split("?")		 
 	 @user_card_url = splitted_url[0]  # the url of photo user just uploaded
 	 @user_card_url = "public" + @user_card_url
-	 status ="送个卡给你！"+"@"+@friends_id[0]
+	 
 	 logger.info("---微波 -- status #{status}")
-	 aFile = File.new(@user_card_url)
-	 upload_card(status,aFile)
+   @friends_id.each do |friend_name|
+     logger.info("--- friends_name : ---#{friend_name}")
+     status ="送个卡给你！"+"@"+friend_name
+     aFile = File.new(@user_card_url)
+     upload_card(status,aFile)
+   end
+
 	 #--- send card via weibo gem 
 	 respond_to do |format|
 	   format.html # create_card_input.html.erb

@@ -6,6 +6,7 @@ class Picture < ActiveRecord::Base
                     :default_style => :back500,
                     :styles => {                      
                       :back500  => "500x500>",
+                      :back300  => "283x323",
                       :back1024 => "1024x600>"
                     },
                     :processors => [:jcropper],
